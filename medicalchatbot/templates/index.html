@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 AI Medical Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            height: 95vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(25px);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ef4444);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .upload-section {
+            width: 350px;
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .upload-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -1px;
+            width: 1px;
+            height: calc(100% - 40px);
+            background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.3), transparent);
+        }
+
+        .upload-section h2 {
+            color: #1e293b;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .file-upload {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 20px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .file-upload-label:hover {
+            border-color: #3b82f6;
+            background: #f8faff;
+        }
+
+        .chat-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .chat-header {
+            padding: 25px 30px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8, #7c3aed);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .chat-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-message {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.5;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .ai-message {
+            background: white;
+            color: #1e293b;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .patient-message {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .question-input {
+            padding: 20px 30px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .send-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .button {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8, #7c3aed);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        .loading {
+            display: none;
+            color: #3b82f6;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .status.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .status.error {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+                margin: 10px;
+            }
+
+            .upload-section {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .chat-message {
+                max-width: 85%;
+            }
+        }
+    </style>
+
+    <script>
+        function uploadFile(input) {
+            let file = input.files[0];
+            if (!file) return;
+
+            let formData = new FormData();
+            formData.append("clinical_report", file);
+
+            document.getElementById("upload-status").innerHTML = `<div class="status"><i class="fas fa-spinner fa-spin"></i> Uploading...</div>`;
+
+            fetch("/upload_report", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        document.getElementById("upload-status").innerHTML = `<div class="status success"><i class="fas fa-check-circle"></i> File Uploaded Successfully!</div>`;
+                    } else {
+                        document.getElementById("upload-status").innerHTML = `<div class="status error"><i class="fas fa-exclamation-circle"></i> Upload Failed: ${data.error || "Unknown error"}</div>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("upload-status").innerHTML = `<div class="status error"><i class="fas fa-exclamation-circle"></i> Upload Failed: ${error.message}</div>`;
+                });
+        }
+
+        function sendQuestion(event) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                let questionInput = document.getElementById("question");
+                let questionText = questionInput.value.trim();
+                if (questionText === "") return;
+
+                let chatBox = document.getElementById("chat-box");
+                let userMessage = `<div class='chat-message user-message'><i class="fas fa-user-md"></i> <strong>Doctor:</strong> ${questionText}</div>`;
+                chatBox.appendChild(createMessageElement(userMessage));
+                chatBox.scrollTop = chatBox.scrollHeight;
+                questionInput.value = "";
+
+                fetch("/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: questionText })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        let response = data.response || "No response received";
+                        let messageClass = response.includes('🤖') ? 'ai-message' : 'patient-message';
+                        let icon = response.includes('🤖') ? 'fas fa-robot' : 'fas fa-user';
+                        let aiMessage = `<div class='chat-message ${messageClass}'><i class="${icon}"></i> ${response}</div>`;
+                        chatBox.appendChild(createMessageElement(aiMessage));
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    })
+                    .catch(error => {
+                        let errorMessage = `<div class='chat-message ai-message'><i class="fas fa-exclamation-triangle"></i> <strong>Error:</strong> ${error.message}</div>`;
+                        chatBox.appendChild(createMessageElement(errorMessage));
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    });
+            }
+        }
+
+        function generateReport() {
+            const loadingIndicator = document.getElementById("loading");
+            loadingIndicator.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Generating Report...`;
+            loadingIndicator.style.display = "block";
+
+            fetch("/generate_report", {
+                method: "POST"
+            })
+                .then(response => {
+                    loadingIndicator.style.display = "none";
+                    if (!response.ok) {
+                        throw new Error("Failed to generate report.");
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement("a");
+                    a.href = url;
+                    a.download = "Final_Health_Report.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                })
+                .catch(error => {
+                    loadingIndicator.style.display = "none";
+                    alert("Error generating the report: " + error.message);
+                });
+        }
+        function createMessageElement(html) {
+            const div = document.createElement('div');
+            div.innerHTML = html;
+            return div.firstChild;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="upload-section">
+            <h2><i class="fas fa-file-medical"></i> Upload Clinical Report</h2>
+            <div class="file-upload">
+                <input type="file" id="clinical_report" name="clinical_report" onchange="uploadFile(this)" accept=".json, .csv, .pdf, .doc, .docx" required>
+                <label for="clinical_report" class="file-upload-label">
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 24px; color: #3b82f6; margin-bottom: 10px;"></i>
+                    <div style="font-weight: 600; margin-bottom: 5px;">Choose Medical Report</div>
+                    <div style="font-size: 14px; color: #64748b;">📄 PDF, DOC, JSON, CSV files supported</div>
+                </label>
+            </div>
+            <div id="upload-status"></div>
+            <button class="button" onclick="generateReport()">
+                <i class="fas fa-file-pdf"></i> Generate Report
+            </button>
+            <div id="loading" class="loading"></div>
+        </div>
+
+        <div class="chat-section">
+            <div class="chat-header">
+                <i class="fas fa-stethoscope"></i>
+                <h2>AI Medical Assistant</h2>
+                <div style="margin-left: auto; font-size: 14px; opacity: 0.9;">
+                    <i class="fas fa-brain"></i> Smart AI
+                </div>
+            </div>
+            <div class="chat-box" id="chat-box">
+                <div class="chat-message ai-message">
+                    <i class="fas fa-robot"></i> Hello! I'm your AI Medical Assistant. Please upload a clinical report and ask me any questions about the patient's condition.
+                </div>
+            </div>
+            <div class="question-input">
+                <div class="input-wrapper">
+                    <input type="text" id="question" placeholder="Ask about symptoms, diagnosis, treatment..." onkeydown="sendQuestion(event)">
+                </div>
+                <button class="send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const event = { key: 'Enter', shiftKey: false, preventDefault: () => {} };
+            sendQuestion(event);
+        }
+    </script>
+</body>
+
+</html>
