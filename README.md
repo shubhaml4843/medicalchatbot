@@ -273,10 +273,6 @@ Check application logs in the `logs/` directory for detailed error information.
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - **Cohere**: Advanced language model API for medical reasoning
