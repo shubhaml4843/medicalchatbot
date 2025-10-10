@@ -1,0 +1,714 @@
+2025-10-07 10:36:57,340 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 10:36:57,489 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 10:36:57,490 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 11:10:36,985 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 11:10:43,817 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-07 11:11:08,914 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 11:11:18,029 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-07 11:53:51,720 - __main__ - INFO - Uploaded file saved to uploads\report_Mr.pdf
+2025-10-07 11:54:06,169 - __main__ - ERROR - Error in ask_question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 122, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 152, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 123, in classify_and_respond
+    patient_response = co.generate(
+                       ^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 1636, in generate
+    raise NotFoundError(
+cohere.errors.not_found_error.NotFoundError: status_code: 404, body: {'id': '367dc3a2-ee52-4cc8-b403-000dd92e7bce', 'message': 'Generate API was removed on September 15 2025. Please migrate to Chat API. See https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat for details.'}
+2025-10-07 11:54:47,450 - __main__ - ERROR - Error in ask_question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 122, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 152, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 123, in classify_and_respond
+    patient_response = co.generate(
+                       ^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 1636, in generate
+    raise NotFoundError(
+cohere.errors.not_found_error.NotFoundError: status_code: 404, body: {'id': '660f78d0-8b5d-43c8-8f46-ebbc10648e10', 'message': 'Generate API was removed on September 15 2025. Please migrate to Chat API. See https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat for details.'}
+2025-10-07 11:55:23,917 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 11:55:31,269 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-07 11:56:14,731 - __main__ - INFO - Uploaded file saved to uploads\report_Mr.pdf
+2025-10-07 11:56:20,073 - __main__ - INFO - Generating report...
+2025-10-07 11:56:20,074 - __main__ - INFO - Extracting structured data from clinical text...
+2025-10-07 11:56:20,074 - models.extract - INFO - Received report content:
+Medical Report
+Patient Name:
+Mr
+Age:
+55
+Gender:
+Male
+Medical History:
+Chronic Conditions:
+Hypertension (Well-controlled with medication)
+Past Surgeries:
+None reported
+Allergies:
+No known drug allergies
+Family Medical History:
+Father: Heart disease, passed away due to stroke
+Symptoms:
+controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)
+Test Results:
+- WBC Count: 15
+- Platelet Count: 250
+Vital Signs:
+- heart_rate: 110
+- blood_pressure: 135/85
+- oxygen_saturation: 93
+Medications:
+Oseltamivir 75 mg orally, twice daily for 5 days
+Lifestyle Factors
+Diagnosis:
+[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical
+diagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':
+'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]
+Recommended Tests:
+Error generating test recommendations: Diagnosis is missing or invalid.
+Treatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]
+Recommended Tests:
+Error generating test recommendations: Diagnosis is missing or invalid.
+Treatment Plan:
+Symptoms: controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test
+Results: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided
+information, here are the top']
+Follow-Up Plan:
+Given the patient's history of acquired pneumonia and the potential for a complicated recovery amid
+comorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with
+medical interventions, lifestyle adjustments, and advice, is paramount for their recovery. 
+Here's a structured weekly follow-up plan for the patient:
+### Week 1
+1. Medical Tests: 
+   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to
+initial antibiotics.
+   - Full Blood Count (FBC): To assess any changes in blood parameters.
+2. Medications: initial antibiotics.
+   - Full Blood Count (FBC): To assess any changes in blood parameters.
+2. Medications: 
+   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,
+Clarithromycin) if necessary, based on the patient's response and clinical symptoms.
+   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.
+3. Lifestyle and Behavioral Advice: 
+   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain
+hydration.
+   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to
+improve lung function and oxygenation.
+   - Family Education: Educate the patient's family about the signs and symptoms to watch for and
+how to manage any potential complications.
+### Week 2
+1. Medical Tests: 
+   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.
+### Week 2
+1. Medical Tests: 
+   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically
+measuring forced expiratory volume (FEV1) and forced vital capacity (FVC). 
+2. Medications: 
+   - Review Current Medications: Continue the current medications for now, monitoring for any
+allergic reactions or adverse effects.
+3. Lifestyle and Behavioral Advice: 
+   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent
+shortness of breath.
+   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to
+support healing and immune function.
+### Week 3
+1. Medical Tests: 
+   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of
+infiltrates/consolidation and pleural effusion.
+2. Medications: 
+   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.
+2. Medications: 
+   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV
+antibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.
+Conclusion:
+- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the
+top', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':
+'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],
+this treatment plan addresses the immediate concerns and focuses on managing the patient's
+symptoms.
+- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve
+patient outcomes and ensure regular monitoring.
+- Follow-up tests are recommended to ensure that the condition is progressing as expected, and
+further evaluation may be required if the patient's condition worsens.
+2025-10-07 11:56:22,269 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Medical Report\nPatient Name:\nMr\nAge:\n55\nGender:\nMale\nMedical History:\nChronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke\nSymptoms:\ncontrolled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)\nTest Results:\n- WBC Count: 15\n- Platelet Count: 250\nVital Signs:\n- heart_rate: 110\n- blood_pressure: 135/85\n- oxygen_saturation: 93\nMedications:\nOseltamivir 75 mg orally, twice daily for 5 days\nLifestyle Factors\nDiagnosis:\n[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical\ndiagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':\n'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan:\nSymptoms: controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test\nResults: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided\ninformation, here are the top']\nFollow-Up Plan:\nGiven the patient's history of acquired pneumonia and the potential for a complicated recovery amid\ncomorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with\nmedical interventions, lifestyle adjustments, and advice, is paramount for their recovery. \nHere's a structured weekly follow-up plan for the patient:\n### Week 1\n1. Medical Tests: \n   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to\ninitial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: initial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: \n   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,\nClarithromycin) if necessary, based on the patient's response and clinical symptoms.\n   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.\n3. Lifestyle and Behavioral Advice: \n   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain\nhydration.\n   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to\nimprove lung function and oxygenation.\n   - Family Education: Educate the patient's family about the signs and symptoms to watch for and\nhow to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically\nmeasuring forced expiratory volume (FEV1) and forced vital capacity (FVC). \n2. Medications: \n   - Review Current Medications: Continue the current medications for now, monitoring for any\nallergic reactions or adverse effects.\n3. Lifestyle and Behavioral Advice: \n   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent\nshortness of breath.\n   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to\nsupport healing and immune function.\n### Week 3\n1. Medical Tests: \n   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of\ninfiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV\nantibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.\nConclusion:\n- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the\ntop', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':\n'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],\nthis treatment plan addresses the immediate concerns and focuses on managing the patient's\nsymptoms.\n- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve\npatient outcomes and ensure regular monitoring.\n- Follow-up tests are recommended to ensure that the condition is progressing as expected, and\nfurther evaluation may be required if the patient's condition worsens.",
+    "name": "Mr\nAge",
+    "age": "55",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke",
+    "symptoms": [
+        "up tests are recommended to ensure that the condition is progressing as expected",
+        "wise treatment schedule aim to improve",
+        "Based on the predicted diagnosis of",
+        "Full Blood Count",
+        "ray to assess the resolution of",
+        "Repeat Blood Culture",
+        "ray results",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)",
+        "Up Plan",
+        "Family Education",
+        "Encouragement of Fluids",
+        "Review and Adjust Dosage",
+        "up plan for the patient",
+        "heart_rate",
+        "Nutrition",
+        "Respiratory Exercisers",
+        "Platelet Count",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test",
+        "blood_pressure",
+        "infiltrates",
+        "up chest X",
+        "controlled with medication",
+        "Spirometry",
+        "Follow",
+        "WBC Count",
+        "Pain Management",
+        "Activity Level",
+        "oxygen_saturation",
+        "by",
+        "week breakdown",
+        "Review Current Medications",
+        "patient outcomes and ensure regular monitoring",
+        "Repeat Chest X",
+        "The prescribed medications"
+    ],
+    "vital_signs": [],
+    "test_results": {
+        "- WBC Count": "15",
+        "- Platelet Count": "250",
+        "WBC Count": "15",
+        "Platelet Count": "250"
+    },
+    "medications": [
+        "twice daily for 5 days\nLifestyle Factors\nDiagnosis",
+        "Oseltamivir 75 mg orally"
+    ],
+    "preliminary_diagnosis": "[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical"
+}
+2025-10-07 11:56:22,271 - __main__ - INFO - Extracted report data:
+{
+    "full_report": "Medical Report\nPatient Name:\nMr\nAge:\n55\nGender:\nMale\nMedical History:\nChronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke\nSymptoms:\ncontrolled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)\nTest Results:\n- WBC Count: 15\n- Platelet Count: 250\nVital Signs:\n- heart_rate: 110\n- blood_pressure: 135/85\n- oxygen_saturation: 93\nMedications:\nOseltamivir 75 mg orally, twice daily for 5 days\nLifestyle Factors\nDiagnosis:\n[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical\ndiagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':\n'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan:\nSymptoms: controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test\nResults: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided\ninformation, here are the top']\nFollow-Up Plan:\nGiven the patient's history of acquired pneumonia and the potential for a complicated recovery amid\ncomorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with\nmedical interventions, lifestyle adjustments, and advice, is paramount for their recovery. \nHere's a structured weekly follow-up plan for the patient:\n### Week 1\n1. Medical Tests: \n   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to\ninitial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: initial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: \n   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,\nClarithromycin) if necessary, based on the patient's response and clinical symptoms.\n   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.\n3. Lifestyle and Behavioral Advice: \n   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain\nhydration.\n   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to\nimprove lung function and oxygenation.\n   - Family Education: Educate the patient's family about the signs and symptoms to watch for and\nhow to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically\nmeasuring forced expiratory volume (FEV1) and forced vital capacity (FVC). \n2. Medications: \n   - Review Current Medications: Continue the current medications for now, monitoring for any\nallergic reactions or adverse effects.\n3. Lifestyle and Behavioral Advice: \n   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent\nshortness of breath.\n   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to\nsupport healing and immune function.\n### Week 3\n1. Medical Tests: \n   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of\ninfiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV\nantibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.\nConclusion:\n- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the\ntop', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':\n'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],\nthis treatment plan addresses the immediate concerns and focuses on managing the patient's\nsymptoms.\n- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve\npatient outcomes and ensure regular monitoring.\n- Follow-up tests are recommended to ensure that the condition is progressing as expected, and\nfurther evaluation may be required if the patient's condition worsens.",
+    "name": "Mr\nAge",
+    "age": "55",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke",
+    "symptoms": [
+        "up tests are recommended to ensure that the condition is progressing as expected",
+        "wise treatment schedule aim to improve",
+        "Based on the predicted diagnosis of",
+        "Full Blood Count",
+        "ray to assess the resolution of",
+        "Repeat Blood Culture",
+        "ray results",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)",
+        "Up Plan",
+        "Family Education",
+        "Encouragement of Fluids",
+        "Review and Adjust Dosage",
+        "up plan for the patient",
+        "heart_rate",
+        "Nutrition",
+        "Respiratory Exercisers",
+        "Platelet Count",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test",
+        "blood_pressure",
+        "infiltrates",
+        "up chest X",
+        "controlled with medication",
+        "Spirometry",
+        "Follow",
+        "WBC Count",
+        "Pain Management",
+        "Activity Level",
+        "oxygen_saturation",
+        "by",
+        "week breakdown",
+        "Review Current Medications",
+        "patient outcomes and ensure regular monitoring",
+        "Repeat Chest X",
+        "The prescribed medications"
+    ],
+    "vital_signs": [],
+    "test_results": {
+        "- WBC Count": "15",
+        "- Platelet Count": "250",
+        "WBC Count": "15",
+        "Platelet Count": "250"
+    },
+    "medications": [
+        "twice daily for 5 days\nLifestyle Factors\nDiagnosis",
+        "Oseltamivir 75 mg orally"
+    ],
+    "preliminary_diagnosis": "[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical"
+}
+2025-10-07 11:56:22,273 - __main__ - ERROR - Missing required fields: ['vital_signs']
+2025-10-07 11:56:58,919 - __main__ - ERROR - Error in ask_question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 122, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 146, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 120, in classify_and_respond
+    patient_response = co.chat(
+                       ^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 103, in _wrapped
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 35, in _wrapped
+    return method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 1032, in chat
+    raise NotFoundError(
+cohere.errors.not_found_error.NotFoundError: status_code: 404, body: {'id': 'd735d298-d460-4b67-a981-d15815b61b63', 'message': "model 'command-r-plus' was removed on September 15, 2025. See https://docs.cohere.com/docs/models#command for a list of models you can use instead."}
+2025-10-07 11:58:44,810 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 11:58:50,060 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-07 11:59:12,383 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-07 11:59:19,736 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-07 11:59:27,312 - __main__ - INFO - Uploaded file saved to uploads\report_Mr.pdf
+2025-10-07 11:59:31,927 - __main__ - INFO - Generating report...
+2025-10-07 11:59:31,928 - __main__ - INFO - Extracting structured data from clinical text...
+2025-10-07 11:59:31,928 - models.extract - INFO - Received report content:
+Medical Report
+Patient Name:
+Mr
+Age:
+55
+Gender:
+Male
+Medical History:
+Chronic Conditions:
+Hypertension (Well-controlled with medication)
+Past Surgeries:
+None reported
+Allergies:
+No known drug allergies
+Family Medical History:
+Father: Heart disease, passed away due to stroke
+Symptoms:
+controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)
+Test Results:
+- WBC Count: 15
+- Platelet Count: 250
+Vital Signs:
+- heart_rate: 110
+- blood_pressure: 135/85
+- oxygen_saturation: 93
+Medications:
+Oseltamivir 75 mg orally, twice daily for 5 days
+Lifestyle Factors
+Diagnosis:
+[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical
+diagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':
+'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]
+Recommended Tests:
+Error generating test recommendations: Diagnosis is missing or invalid.
+Treatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]
+Recommended Tests:
+Error generating test recommendations: Diagnosis is missing or invalid.
+Treatment Plan:
+Symptoms: controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test
+Results: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided
+information, here are the top']
+Follow-Up Plan:
+Given the patient's history of acquired pneumonia and the potential for a complicated recovery amid
+comorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with
+medical interventions, lifestyle adjustments, and advice, is paramount for their recovery. 
+Here's a structured weekly follow-up plan for the patient:
+### Week 1
+1. Medical Tests: 
+   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to
+initial antibiotics.
+   - Full Blood Count (FBC): To assess any changes in blood parameters.
+2. Medications: initial antibiotics.
+   - Full Blood Count (FBC): To assess any changes in blood parameters.
+2. Medications: 
+   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,
+Clarithromycin) if necessary, based on the patient's response and clinical symptoms.
+   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.
+3. Lifestyle and Behavioral Advice: 
+   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain
+hydration.
+   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to
+improve lung function and oxygenation.
+   - Family Education: Educate the patient's family about the signs and symptoms to watch for and
+how to manage any potential complications.
+### Week 2
+1. Medical Tests: 
+   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.
+### Week 2
+1. Medical Tests: 
+   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically
+measuring forced expiratory volume (FEV1) and forced vital capacity (FVC). 
+2. Medications: 
+   - Review Current Medications: Continue the current medications for now, monitoring for any
+allergic reactions or adverse effects.
+3. Lifestyle and Behavioral Advice: 
+   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent
+shortness of breath.
+   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to
+support healing and immune function.
+### Week 3
+1. Medical Tests: 
+   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of
+infiltrates/consolidation and pleural effusion.
+2. Medications: 
+   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.
+2. Medications: 
+   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV
+antibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.
+Conclusion:
+- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the
+top', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':
+'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],
+this treatment plan addresses the immediate concerns and focuses on managing the patient's
+symptoms.
+- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve
+patient outcomes and ensure regular monitoring.
+- Follow-up tests are recommended to ensure that the condition is progressing as expected, and
+further evaluation may be required if the patient's condition worsens.
+2025-10-07 11:59:34,053 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Medical Report\nPatient Name:\nMr\nAge:\n55\nGender:\nMale\nMedical History:\nChronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke\nSymptoms:\ncontrolled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)\nTest Results:\n- WBC Count: 15\n- Platelet Count: 250\nVital Signs:\n- heart_rate: 110\n- blood_pressure: 135/85\n- oxygen_saturation: 93\nMedications:\nOseltamivir 75 mg orally, twice daily for 5 days\nLifestyle Factors\nDiagnosis:\n[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical\ndiagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':\n'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan:\nSymptoms: controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test\nResults: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided\ninformation, here are the top']\nFollow-Up Plan:\nGiven the patient's history of acquired pneumonia and the potential for a complicated recovery amid\ncomorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with\nmedical interventions, lifestyle adjustments, and advice, is paramount for their recovery. \nHere's a structured weekly follow-up plan for the patient:\n### Week 1\n1. Medical Tests: \n   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to\ninitial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: initial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: \n   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,\nClarithromycin) if necessary, based on the patient's response and clinical symptoms.\n   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.\n3. Lifestyle and Behavioral Advice: \n   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain\nhydration.\n   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to\nimprove lung function and oxygenation.\n   - Family Education: Educate the patient's family about the signs and symptoms to watch for and\nhow to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically\nmeasuring forced expiratory volume (FEV1) and forced vital capacity (FVC). \n2. Medications: \n   - Review Current Medications: Continue the current medications for now, monitoring for any\nallergic reactions or adverse effects.\n3. Lifestyle and Behavioral Advice: \n   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent\nshortness of breath.\n   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to\nsupport healing and immune function.\n### Week 3\n1. Medical Tests: \n   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of\ninfiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV\nantibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.\nConclusion:\n- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the\ntop', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':\n'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],\nthis treatment plan addresses the immediate concerns and focuses on managing the patient's\nsymptoms.\n- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve\npatient outcomes and ensure regular monitoring.\n- Follow-up tests are recommended to ensure that the condition is progressing as expected, and\nfurther evaluation may be required if the patient's condition worsens.",
+    "name": "Mr\nAge",
+    "age": "55",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke",
+    "symptoms": [
+        "The prescribed medications",
+        "up chest X",
+        "oxygen_saturation",
+        "Pain Management",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test",
+        "ray to assess the resolution of",
+        "Spirometry",
+        "wise treatment schedule aim to improve",
+        "infiltrates",
+        "Activity Level",
+        "blood_pressure",
+        "up tests are recommended to ensure that the condition is progressing as expected",
+        "Up Plan",
+        "week breakdown",
+        "ray results",
+        "Encouragement of Fluids",
+        "controlled with medication",
+        "Review Current Medications",
+        "Full Blood Count",
+        "patient outcomes and ensure regular monitoring",
+        "Family Education",
+        "up plan for the patient",
+        "Repeat Blood Culture",
+        "Review and Adjust Dosage",
+        "Follow",
+        "by",
+        "Respiratory Exercisers",
+        "Nutrition",
+        "Based on the predicted diagnosis of",
+        "Repeat Chest X",
+        "WBC Count",
+        "Platelet Count",
+        "heart_rate",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)"
+    ],
+    "vital_signs": {
+        "heart_rate": "Normal",
+        "blood_pressure": "Normal",
+        "temperature": "Normal"
+    },
+    "test_results": {
+        "- WBC Count": "15",
+        "- Platelet Count": "250",
+        "WBC Count": "15",
+        "Platelet Count": "250"
+    },
+    "medications": [
+        "twice daily for 5 days",
+        "Oseltamivir 75 mg orally"
+    ],
+    "preliminary_diagnosis": "diagnosis: Based on the provided information, here are the top, confidence: 3 likely medical"
+}
+2025-10-07 11:59:34,055 - __main__ - INFO - Extracted report data:
+{
+    "full_report": "Medical Report\nPatient Name:\nMr\nAge:\n55\nGender:\nMale\nMedical History:\nChronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke\nSymptoms:\ncontrolled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)\nTest Results:\n- WBC Count: 15\n- Platelet Count: 250\nVital Signs:\n- heart_rate: 110\n- blood_pressure: 135/85\n- oxygen_saturation: 93\nMedications:\nOseltamivir 75 mg orally, twice daily for 5 days\nLifestyle Factors\nDiagnosis:\n[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical\ndiagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':\n'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan:\nSymptoms: controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test\nResults: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided\ninformation, here are the top']\nFollow-Up Plan:\nGiven the patient's history of acquired pneumonia and the potential for a complicated recovery amid\ncomorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with\nmedical interventions, lifestyle adjustments, and advice, is paramount for their recovery. \nHere's a structured weekly follow-up plan for the patient:\n### Week 1\n1. Medical Tests: \n   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to\ninitial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: initial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: \n   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,\nClarithromycin) if necessary, based on the patient's response and clinical symptoms.\n   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.\n3. Lifestyle and Behavioral Advice: \n   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain\nhydration.\n   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to\nimprove lung function and oxygenation.\n   - Family Education: Educate the patient's family about the signs and symptoms to watch for and\nhow to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically\nmeasuring forced expiratory volume (FEV1) and forced vital capacity (FVC). \n2. Medications: \n   - Review Current Medications: Continue the current medications for now, monitoring for any\nallergic reactions or adverse effects.\n3. Lifestyle and Behavioral Advice: \n   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent\nshortness of breath.\n   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to\nsupport healing and immune function.\n### Week 3\n1. Medical Tests: \n   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of\ninfiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV\nantibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.\nConclusion:\n- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the\ntop', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':\n'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],\nthis treatment plan addresses the immediate concerns and focuses on managing the patient's\nsymptoms.\n- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve\npatient outcomes and ensure regular monitoring.\n- Follow-up tests are recommended to ensure that the condition is progressing as expected, and\nfurther evaluation may be required if the patient's condition worsens.",
+    "name": "Mr\nAge",
+    "age": "55",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke",
+    "symptoms": [
+        "The prescribed medications",
+        "up chest X",
+        "oxygen_saturation",
+        "Pain Management",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test",
+        "ray to assess the resolution of",
+        "Spirometry",
+        "wise treatment schedule aim to improve",
+        "infiltrates",
+        "Activity Level",
+        "blood_pressure",
+        "up tests are recommended to ensure that the condition is progressing as expected",
+        "Up Plan",
+        "week breakdown",
+        "ray results",
+        "Encouragement of Fluids",
+        "controlled with medication",
+        "Review Current Medications",
+        "Full Blood Count",
+        "patient outcomes and ensure regular monitoring",
+        "Family Education",
+        "up plan for the patient",
+        "Repeat Blood Culture",
+        "Review and Adjust Dosage",
+        "Follow",
+        "by",
+        "Respiratory Exercisers",
+        "Nutrition",
+        "Based on the predicted diagnosis of",
+        "Repeat Chest X",
+        "WBC Count",
+        "Platelet Count",
+        "heart_rate",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)"
+    ],
+    "vital_signs": {
+        "heart_rate": "Normal",
+        "blood_pressure": "Normal",
+        "temperature": "Normal"
+    },
+    "test_results": {
+        "- WBC Count": "15",
+        "- Platelet Count": "250",
+        "WBC Count": "15",
+        "Platelet Count": "250"
+    },
+    "medications": [
+        "twice daily for 5 days",
+        "Oseltamivir 75 mg orally"
+    ],
+    "preliminary_diagnosis": "diagnosis: Based on the provided information, here are the top, confidence: 3 likely medical"
+}
+2025-10-07 11:59:34,057 - __main__ - INFO - Generating PDF report...
+2025-10-07 11:59:34,058 - models.extract - INFO - Received report content:
+Medical Report
+Patient Name:
+Mr
+Age:
+55
+Gender:
+Male
+Medical History:
+Chronic Conditions:
+Hypertension (Well-controlled with medication)
+Past Surgeries:
+None reported
+Allergies:
+No known drug allergies
+Family Medical History:
+Father: Heart disease, passed away due to stroke
+Symptoms:
+controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)
+Test Results:
+- WBC Count: 15
+- Platelet Count: 250
+Vital Signs:
+- heart_rate: 110
+- blood_pressure: 135/85
+- oxygen_saturation: 93
+Medications:
+Oseltamivir 75 mg orally, twice daily for 5 days
+Lifestyle Factors
+Diagnosis:
+[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical
+diagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':
+'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]
+Recommended Tests:
+Error generating test recommendations: Diagnosis is missing or invalid.
+Treatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]
+Recommended Tests:
+Error generating test recommendations: Diagnosis is missing or invalid.
+Treatment Plan:
+Symptoms: controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test
+Results: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided
+information, here are the top']
+Follow-Up Plan:
+Given the patient's history of acquired pneumonia and the potential for a complicated recovery amid
+comorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with
+medical interventions, lifestyle adjustments, and advice, is paramount for their recovery. 
+Here's a structured weekly follow-up plan for the patient:
+### Week 1
+1. Medical Tests: 
+   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to
+initial antibiotics.
+   - Full Blood Count (FBC): To assess any changes in blood parameters.
+2. Medications: initial antibiotics.
+   - Full Blood Count (FBC): To assess any changes in blood parameters.
+2. Medications: 
+   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,
+Clarithromycin) if necessary, based on the patient's response and clinical symptoms.
+   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.
+3. Lifestyle and Behavioral Advice: 
+   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain
+hydration.
+   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to
+improve lung function and oxygenation.
+   - Family Education: Educate the patient's family about the signs and symptoms to watch for and
+how to manage any potential complications.
+### Week 2
+1. Medical Tests: 
+   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.
+### Week 2
+1. Medical Tests: 
+   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically
+measuring forced expiratory volume (FEV1) and forced vital capacity (FVC). 
+2. Medications: 
+   - Review Current Medications: Continue the current medications for now, monitoring for any
+allergic reactions or adverse effects.
+3. Lifestyle and Behavioral Advice: 
+   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent
+shortness of breath.
+   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to
+support healing and immune function.
+### Week 3
+1. Medical Tests: 
+   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of
+infiltrates/consolidation and pleural effusion.
+2. Medications: 
+   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.
+2. Medications: 
+   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV
+antibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.
+Conclusion:
+- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the
+top', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':
+'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],
+this treatment plan addresses the immediate concerns and focuses on managing the patient's
+symptoms.
+- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve
+patient outcomes and ensure regular monitoring.
+- Follow-up tests are recommended to ensure that the condition is progressing as expected, and
+further evaluation may be required if the patient's condition worsens.
+2025-10-07 11:59:36,122 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Medical Report\nPatient Name:\nMr\nAge:\n55\nGender:\nMale\nMedical History:\nChronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke\nSymptoms:\ncontrolled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)\nTest Results:\n- WBC Count: 15\n- Platelet Count: 250\nVital Signs:\n- heart_rate: 110\n- blood_pressure: 135/85\n- oxygen_saturation: 93\nMedications:\nOseltamivir 75 mg orally, twice daily for 5 days\nLifestyle Factors\nDiagnosis:\n[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical\ndiagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':\n'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan:\nSymptoms: controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test\nResults: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided\ninformation, here are the top']\nFollow-Up Plan:\nGiven the patient's history of acquired pneumonia and the potential for a complicated recovery amid\ncomorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with\nmedical interventions, lifestyle adjustments, and advice, is paramount for their recovery. \nHere's a structured weekly follow-up plan for the patient:\n### Week 1\n1. Medical Tests: \n   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to\ninitial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: initial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: \n   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,\nClarithromycin) if necessary, based on the patient's response and clinical symptoms.\n   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.\n3. Lifestyle and Behavioral Advice: \n   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain\nhydration.\n   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to\nimprove lung function and oxygenation.\n   - Family Education: Educate the patient's family about the signs and symptoms to watch for and\nhow to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically\nmeasuring forced expiratory volume (FEV1) and forced vital capacity (FVC). \n2. Medications: \n   - Review Current Medications: Continue the current medications for now, monitoring for any\nallergic reactions or adverse effects.\n3. Lifestyle and Behavioral Advice: \n   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent\nshortness of breath.\n   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to\nsupport healing and immune function.\n### Week 3\n1. Medical Tests: \n   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of\ninfiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV\nantibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.\nConclusion:\n- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the\ntop', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':\n'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],\nthis treatment plan addresses the immediate concerns and focuses on managing the patient's\nsymptoms.\n- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve\npatient outcomes and ensure regular monitoring.\n- Follow-up tests are recommended to ensure that the condition is progressing as expected, and\nfurther evaluation may be required if the patient's condition worsens.",
+    "name": "Mr\nAge",
+    "age": "55",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke",
+    "symptoms": [
+        "The prescribed medications",
+        "up chest X",
+        "oxygen_saturation",
+        "Pain Management",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C) Test",
+        "ray to assess the resolution of",
+        "Spirometry",
+        "wise treatment schedule aim to improve",
+        "infiltrates",
+        "Activity Level",
+        "blood_pressure",
+        "up tests are recommended to ensure that the condition is progressing as expected",
+        "Up Plan",
+        "week breakdown",
+        "ray results",
+        "Encouragement of Fluids",
+        "controlled with medication",
+        "Review Current Medications",
+        "Full Blood Count",
+        "patient outcomes and ensure regular monitoring",
+        "Family Education",
+        "up plan for the patient",
+        "Repeat Blood Culture",
+        "Review and Adjust Dosage",
+        "Follow",
+        "by",
+        "Respiratory Exercisers",
+        "Nutrition",
+        "Based on the predicted diagnosis of",
+        "Repeat Chest X",
+        "WBC Count",
+        "Platelet Count",
+        "heart_rate",
+        "controlled with medication, Acquired Pneumonia, Fever up to 102\u00b0F (38.9\u00b0C)"
+    ],
+    "vital_signs": {
+        "heart_rate": "Normal",
+        "blood_pressure": "Normal",
+        "temperature": "Normal"
+    },
+    "test_results": {
+        "- WBC Count": "15",
+        "- Platelet Count": "250",
+        "WBC Count": "15",
+        "Platelet Count": "250"
+    },
+    "medications": [
+        "twice daily for 5 days",
+        "Oseltamivir 75 mg orally"
+    ],
+    "preliminary_diagnosis": "diagnosis: Based on the provided information, here are the top, confidence: 3 likely medical"
+}
+2025-10-07 11:59:36,124 - models.diagnosis - INFO - Symptoms: The prescribed medications, up chest X, oxygen_saturation, Pain Management, controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test, ray to assess the resolution of, Spirometry, wise treatment schedule aim to improve, infiltrates, Activity Level, blood_pressure, up tests are recommended to ensure that the condition is progressing as expected, Up Plan, week breakdown, ray results, Encouragement of Fluids, controlled with medication, Review Current Medications, Full Blood Count, patient outcomes and ensure regular monitoring, Family Education, up plan for the patient, Repeat Blood Culture, Review and Adjust Dosage, Follow, by, Respiratory Exercisers, Nutrition, Based on the predicted diagnosis of, Repeat Chest X, WBC Count, Platelet Count, heart_rate, controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)
+2025-10-07 11:59:36,125 - models.diagnosis - INFO - Vitals: heart_rate: Normal, blood_pressure: Normal, temperature: Normal
+2025-10-07 11:59:36,125 - models.diagnosis - INFO - Tests: - WBC Count: 15, - Platelet Count: 250, WBC Count: 15, Platelet Count: 250
+2025-10-07 11:59:36,125 - models.diagnosis - INFO - Preliminary Diagnosis: diagnosis: Based on the provided information, here are the top, confidence: 3 likely medical
+2025-10-07 11:59:36,752 - models.diagnosis - ERROR - Cohere failed to generate diagnosis: status_code: 404, body: {'id': '647525e5-9f81-4703-8e20-57ef3112188b', 'message': 'Generate API was removed on September 15 2025. Please migrate to Chat API. See https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat for details.'}
+2025-10-07 11:59:47,094 - models.followup - INFO - Fetching diagnosed conditions...
+2025-10-07 11:59:47,094 - models.followup - ERROR - Error in diagnosis function: diagnose() takes 1 positional argument but 3 were given
+2025-10-07 11:59:47,096 - models.followup - INFO - Patient Data: 
+    Symptoms: ['The prescribed medications', 'up chest X', 'oxygen_saturation', 'Pain Management', 'controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test', 'ray to assess the resolution of', 'Spirometry', 'wise treatment schedule aim to improve', 'infiltrates', 'Activity Level', 'blood_pressure', 'up tests are recommended to ensure that the condition is progressing as expected', 'Up Plan', 'week breakdown', 'ray results', 'Encouragement of Fluids', 'controlled with medication', 'Review Current Medications', 'Full Blood Count', 'patient outcomes and ensure regular monitoring', 'Family Education', 'up plan for the patient', 'Repeat Blood Culture', 'Review and Adjust Dosage', 'Follow', 'by', 'Respiratory Exercisers', 'Nutrition', 'Based on the predicted diagnosis of', 'Repeat Chest X', 'WBC Count', 'Platelet Count', 'heart_rate', 'controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)']
+    Medical History: {'full_report': "Medical Report\nPatient Name:\nMr\nAge:\n55\nGender:\nMale\nMedical History:\nChronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke\nSymptoms:\ncontrolled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)\nTest Results:\n- WBC Count: 15\n- Platelet Count: 250\nVital Signs:\n- heart_rate: 110\n- blood_pressure: 135/85\n- oxygen_saturation: 93\nMedications:\nOseltamivir 75 mg orally, twice daily for 5 days\nLifestyle Factors\nDiagnosis:\n[{'diagnosis': 'Based on the provided information, here are the top', 'confidence': '3 likely medical\ndiagnoses with associated confidence percentages:'}, {'diagnosis': 'Active infection', 'confidence':\n'80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan: '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}]\nRecommended Tests:\nError generating test recommendations: Diagnosis is missing or invalid.\nTreatment Plan:\nSymptoms: controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test\nResults: WBC Count: 15 Platelet Count: 250 Diagnosis: ['diagnosis': 'Based on the provided\ninformation, here are the top']\nFollow-Up Plan:\nGiven the patient's history of acquired pneumonia and the potential for a complicated recovery amid\ncomorbidities of hypertension and smoking, a comprehensive week-by-week breakdown, along with\nmedical interventions, lifestyle adjustments, and advice, is paramount for their recovery. \nHere's a structured weekly follow-up plan for the patient:\n### Week 1\n1. Medical Tests: \n   - Repeat Blood Culture: To rule out any concurrent bacterial infection that could be resistant to\ninitial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: initial antibiotics.\n   - Full Blood Count (FBC): To assess any changes in blood parameters.\n2. Medications: \n   - Review and Adjust Dosage: Adjust the dosages of oral antibiotics (e.g., Amoxicillin,\nClarithromycin) if necessary, based on the patient's response and clinical symptoms.\n   - Pain Management: If needed, consider a safe pain reliever for fever and musculoskeletal pain.\n3. Lifestyle and Behavioral Advice: \n   - Encouragement of Fluids: Promote adequate hydration to help loosen secretions and maintain\nhydration.\n   - Respiratory Exercisers: Encourage the use of respiratory exercisers (e.g., blowing balloons) to\nimprove lung function and oxygenation.\n   - Family Education: Educate the patient's family about the signs and symptoms to watch for and\nhow to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically how to manage any potential complications.\n### Week 2\n1. Medical Tests: \n   - Spirometry: Conduct a spirometry test to assess the patient's lung function, specifically\nmeasuring forced expiratory volume (FEV1) and forced vital capacity (FVC). \n2. Medications: \n   - Review Current Medications: Continue the current medications for now, monitoring for any\nallergic reactions or adverse effects.\n3. Lifestyle and Behavioral Advice: \n   - Activity Level: Encourage gradual increase in activity levels, avoiding overexertion to prevent\nshortness of breath.\n   - Nutrition: Reinforce the importance of a balanced diet with sufficient proteins and vitamins to\nsupport healing and immune function.\n### Week 3\n1. Medical Tests: \n   - Repeat Chest X-ray: Conduct a follow-up chest X-ray to assess the resolution of\ninfiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV infiltrates/consolidation and pleural effusion.\n2. Medications: \n   - Review and Adjust Dosage: Based on the chest X-ray results, adjust the dosages of IV\nantibiotics (e.g., Ceftriaxone, Vancomycin) if necessary.\nConclusion:\n- Based on the predicted diagnosis of [{'diagnosis': 'Based on the provided information, here are the\ntop', 'confidence': '3 likely medical diagnoses with associated confidence percentages:'}, {'diagnosis':\n'Active infection', 'confidence': '80%'}, {'diagnosis': 'Congestive Heart Failure', 'confidence': '15%'}],\nthis treatment plan addresses the immediate concerns and focuses on managing the patient's\nsymptoms.\n- The prescribed medications, lifestyle changes, and week-wise treatment schedule aim to improve\npatient outcomes and ensure regular monitoring.\n- Follow-up tests are recommended to ensure that the condition is progressing as expected, and\nfurther evaluation may be required if the patient's condition worsens.", 'name': 'Mr', 'age': '55', 'gender': 'Male', 'medical_history': 'Chronic Conditions:\nHypertension (Well-controlled with medication)\nPast Surgeries:\nNone reported\nAllergies:\nNo known drug allergies\nFamily Medical History:\nFather: Heart disease, passed away due to stroke', 'symptoms': ['The prescribed medications', 'up chest X', 'oxygen_saturation', 'Pain Management', 'controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C) Test', 'ray to assess the resolution of', 'Spirometry', 'wise treatment schedule aim to improve', 'infiltrates', 'Activity Level', 'blood_pressure', 'up tests are recommended to ensure that the condition is progressing as expected', 'Up Plan', 'week breakdown', 'ray results', 'Encouragement of Fluids', 'controlled with medication', 'Review Current Medications', 'Full Blood Count', 'patient outcomes and ensure regular monitoring', 'Family Education', 'up plan for the patient', 'Repeat Blood Culture', 'Review and Adjust Dosage', 'Follow', 'by', 'Respiratory Exercisers', 'Nutrition', 'Based on the predicted diagnosis of', 'Repeat Chest X', 'WBC Count', 'Platelet Count', 'heart_rate', 'controlled with medication, Acquired Pneumonia, Fever up to 102°F (38.9°C)'], 'vital_signs': {'heart_rate': 'Normal', 'blood_pressure': 'Normal', 'temperature': 'Normal'}, 'test_results': {'- WBC Count': '15', '- Platelet Count': '250', 'WBC Count': '15', 'Platelet Count': '250'}, 'medications': ['twice daily for 5 days', 'Oseltamivir 75 mg orally'], 'preliminary_diagnosis': 'diagnosis: Based on the provided information, here are the top, confidence: 3 likely medical'}  # Use diagnosis to represent the patient's history
+    Test Results: {'- WBC Count': '15', '- Platelet Count': '250', 'WBC Count': '15', 'Platelet Count': '250'}
+    Predicted Diagnosis: Unknown Diagnosis
+    
+2025-10-07 11:59:47,097 - __main__ - ERROR - Error generating report
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 155, in generate_report
+    report_path = generate_pdf_report(report_data)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\report_generation.py", line 166, in generate_pdf_report
+    raise e
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\report_generation.py", line 44, in generate_pdf_report
+    followup_data = generate_followup_plan(patient_info.get('symptoms', []), patient_info, patient_info.get('test_results', {})) or {}
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\followup.py", line 86, in generate_followup_plan
+    inputs = TOKENIZER(input_text, return_tensors="pt", truncation=True, padding=True, max_length=512)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+2025-10-07 12:00:08,470 - __main__ - ERROR - Error in ask_question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 122, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 152, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 123, in classify_and_respond
+    patient_response = co.generate(
+                       ^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 1636, in generate
+    raise NotFoundError(
+cohere.errors.not_found_error.NotFoundError: status_code: 404, body: {'id': '7ad03336-3113-4625-b07d-fd118529e473', 'message': 'Generate API was removed on September 15 2025. Please migrate to Chat API. See https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat for details.'}
+2025-10-07 12:00:28,901 - __main__ - ERROR - Error in ask_question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 122, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 152, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 123, in classify_and_respond
+    patient_response = co.generate(
+                       ^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 1636, in generate
+    raise NotFoundError(
+cohere.errors.not_found_error.NotFoundError: status_code: 404, body: {'id': '7ed22cf4-5fc2-4b6f-8e5e-5a54aa43bd33', 'message': 'Generate API was removed on September 15 2025. Please migrate to Chat API. See https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat for details.'}

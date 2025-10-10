@@ -1,53 +1,8 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.pytest_cache/
-
-# Environment variables
+# Environment variables only
 .env
 .env.local
 .env.*.local
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+# OS files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-
-# Project specific
-uploads/
-reports/
-faiss_index/
-logs/
-*.log
-
-# Models and data
-models/
-*.pkl
-*.h5
-*.pt
-*.pth
-
-# Temporary files
-*.tmp
-*.temp

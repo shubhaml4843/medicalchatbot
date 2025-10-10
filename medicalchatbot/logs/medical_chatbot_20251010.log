@@ -1,0 +1,373 @@
+2025-10-10 11:29:23,842 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 11:29:31,288 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 11:29:31,319 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 11:36:35,027 - __main__ - INFO - File uploaded successfully: 1760076395_Formatted_Clinical_Report.docx
+2025-10-10 11:36:38,091 - __main__ - INFO - Report generation requested
+2025-10-10 11:36:38,091 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-10 11:36:39,474 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Shortness of breath",
+        "Chest pain",
+        "Fatigue",
+        "Persistent cough"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-10 11:36:39,475 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-10 11:36:40,850 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Shortness of breath",
+        "Chest pain",
+        "Fatigue",
+        "Persistent cough"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-10 11:36:40,852 - models.diagnosis - INFO - Symptoms: Shortness of breath, Chest pain, Fatigue, Persistent cough
+2025-10-10 11:36:40,852 - models.diagnosis - INFO - Vitals: heart_rate: 78, blood_pressure: 130/85, temperature: 98.4
+2025-10-10 11:36:40,852 - models.diagnosis - INFO - Tests: - Total Cholesterol: 220 mg/dL, - LDL: 145 mg/dL, - HDL: 40 mg/dL, - Triglycerides: 180 mg/dL
+2025-10-10 11:36:40,853 - models.diagnosis - INFO - Preliminary Diagnosis: Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+2025-10-10 11:36:50,456 - models.followup - INFO - Processing diagnosis...
+2025-10-10 11:36:50,456 - models.followup - ERROR - Error processing diagnosis: diagnose() takes 1 positional argument but 3 were given
+2025-10-10 11:36:50,457 - models.followup - INFO - Patient Data: 
+    Symptoms: ['Shortness of breath', 'Chest pain', 'Fatigue', 'Persistent cough']
+    Medical History: {'full_report': 'Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'name': 'John Doe', 'age': '45', 'gender': 'Male', 'medical_history': 'Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'symptoms': ['Shortness of breath', 'Chest pain', 'Fatigue', 'Persistent cough'], 'vital_signs': {'heart_rate': '78', 'blood_pressure': '130/85', 'temperature': '98.4'}, 'test_results': {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}, 'medications': [], 'preliminary_diagnosis': 'Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity'}  # Use diagnosis to represent the patient's history
+    Test Results: {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}
+    Predicted Diagnosis: General condition
+    
+2025-10-10 11:36:50,463 - __main__ - INFO - Report generated successfully: report_John_Doe_1760076410.pdf
+2025-10-10 11:39:22,879 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:39:22,894 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:39:34,938 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:39:34,941 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:41:08,939 - __main__ - INFO - File uploaded successfully: 1760076668_Formatted_Clinical_Report.docx
+2025-10-10 11:41:13,255 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:41:13,255 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:41:19,832 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:41:19,834 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:42:05,124 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:42:05,126 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:48:03,940 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 11:48:10,635 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 11:48:10,691 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 11:48:34,407 - __main__ - INFO - File uploaded successfully: 1760077114_Formatted_Clinical_Report.docx
+2025-10-10 11:48:37,985 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:48:37,999 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:48:44,133 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:48:44,133 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:49:04,165 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:49:04,166 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:49:12,951 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:49:12,951 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:50:54,976 - __main__ - INFO - File uploaded successfully: 1760077254_Formatted_Clinical_Report.docx
+2025-10-10 11:51:03,160 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:51:03,161 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 11:51:16,883 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 11:51:16,884 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:11:25,694 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 12:11:33,118 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 12:11:33,148 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 12:12:43,486 - __main__ - INFO - File uploaded successfully: 1760078563_Formatted_Clinical_Report.docx
+2025-10-10 12:12:52,273 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:12:52,280 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:12:57,737 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:12:57,738 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:13:16,209 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:13:16,210 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:13:24,612 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:13:24,612 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:13:36,254 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:13:36,254 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:13:56,654 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:13:56,654 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:20:36,901 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 12:20:44,578 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 12:20:44,610 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 12:20:49,346 - __main__ - INFO - File uploaded successfully: 1760079049_Formatted_Clinical_Report.docx
+2025-10-10 12:20:54,721 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:20:54,727 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:21:01,817 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:21:01,818 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:21:01,858 - __main__ - ERROR - Error processing question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\app.py", line 194, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 161, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 128, in classify_and_respond
+    relevant_info = retrieve_relevant_info(question, faiss_index) if faiss_index else None
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Downloads\medicalchatbot\medicalchatbot\models\chatbot.py", line 75, in retrieve_relevant_info
+    return report_texts[top_indices[0][0]]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+2025-10-10 12:22:24,910 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 12:22:31,898 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 12:22:31,928 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 12:23:25,611 - __main__ - INFO - File uploaded successfully: 1760079205_Formatted_Clinical_Report.docx
+2025-10-10 12:23:42,104 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:23:42,109 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:24:32,416 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:24:32,417 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:28:32,693 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 12:28:40,393 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 12:28:40,423 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 12:28:48,515 - __main__ - INFO - File uploaded successfully: 1760079528_Formatted_Clinical_Report.docx
+2025-10-10 12:28:50,845 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:28:50,849 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:28:59,026 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:28:59,026 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:29:09,208 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:29:09,210 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:29:21,505 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:29:21,505 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:29:49,372 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:29:49,374 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:30:01,626 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:30:01,627 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:30:14,222 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:30:14,223 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:31:32,533 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 12:31:32,533 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 12:42:31,693 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 12:42:38,230 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 12:42:38,255 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 14:31:45,258 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 14:31:52,041 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 14:31:52,072 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 14:31:57,866 - __main__ - INFO - File uploaded successfully: 1760086917_Formatted_Clinical_Report.docx
+2025-10-10 14:32:01,203 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 14:32:01,209 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 14:32:06,717 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 14:32:06,717 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 14:32:21,441 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 14:32:21,442 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 14:53:39,292 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 14:53:46,227 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 14:53:46,253 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 16:55:56,341 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 16:56:02,933 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 16:56:02,967 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 16:56:08,830 - __main__ - INFO - File uploaded successfully: 1760095568_Formatted_Clinical_Report.docx
+2025-10-10 16:56:13,252 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:56:13,261 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:56:17,540 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:56:17,540 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:56:26,415 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:56:26,415 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:56:38,440 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:56:38,441 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:57:39,582 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:57:39,583 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:57:52,552 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:57:52,554 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:58:03,650 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:58:03,650 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:58:20,856 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:58:20,858 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:58:34,942 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:58:34,943 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:58:46,209 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:58:46,210 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:58:58,242 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:58:58,243 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 16:59:26,712 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 16:59:26,712 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:00:06,677 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:00:06,677 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:00:22,079 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:00:22,080 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:00:44,956 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:00:44,956 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:01:17,652 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:01:17,653 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:01:32,739 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:01:32,739 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:01:39,255 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:01:39,256 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:02:00,354 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:02:00,355 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:02:13,672 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:02:13,673 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:03:13,797 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:03:13,798 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:03:53,097 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:03:53,098 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:04:48,974 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:04:48,974 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:05:16,609 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:05:16,609 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:11:40,736 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:11:40,737 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:13:43,613 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:13:43,614 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:14:05,667 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:14:05,668 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:14:16,168 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:14:16,170 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:28:52,874 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-10 17:28:59,169 - models.followup - WARNING - Missing COHERE_API_KEY. Cohere features will be disabled.
+2025-10-10 17:28:59,195 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-10 17:29:15,786 - __main__ - INFO - File uploaded successfully: 1760097555_Formatted_Clinical_Report.docx
+2025-10-10 17:29:23,623 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:29:23,624 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-10 17:29:34,238 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-10 17:29:34,238 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
