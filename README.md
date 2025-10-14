@@ -1,18 +1,19 @@
 # Medical Chatbot AI System
 
-An advanced AI-powered medical chatbot system that provides intelligent medical assistance, diagnosis support, treatment recommendations, and comprehensive medical report generation.
+An advanced AI-powered medical chatbot system that provides intelligent medical assistance, diagnosis support, treatment recommendations, and comprehensive medical report generation with real-time medical image analysis.
 
 ## 🚀 Features
 
 ### Core Capabilities
-- **AI Medical Assistant**: Provides evidence-based medical recommendations
+- **AI Medical Assistant**: Provides evidence-based medical recommendations using Cohere AI
 - **Patient Simulation**: Simulates patient responses for training scenarios
 - **Medical Report Processing**: Extracts and analyzes clinical data from uploaded reports
+- **Real-Time Medical Image Analysis**: AI-powered X-ray, MRI, CT scan interpretation
+- **Auto Body Part Detection**: Automatically identifies chest, leg, arm, spine, skull from images
 - **Intelligent Diagnosis**: AI-powered differential diagnosis with confidence scoring
-- **Treatment Planning**: Personalized treatment recommendations with drug interaction checks
-- **Test Recommendations**: Suggests appropriate medical tests based on symptoms
-- **Follow-up Planning**: Generates structured follow-up care plans
-- **PDF Report Generation**: Creates comprehensive medical reports
+- **Dynamic Treatment Planning**: Personalized treatment recommendations with drug interaction checks
+- **Smart Follow-up Plans**: AI-generated weekly timeline plans (1st Week, 2nd Week format)
+- **PDF Report Generation**: Creates comprehensive medical reports with image analysis
 
 ### Advanced AI Features
 - **RAG (Retrieval Augmented Generation)**: Enhanced responses using medical knowledge base via FAISS vector search
@@ -21,9 +22,8 @@ An advanced AI-powered medical chatbot system that provides intelligent medical 
 - **Drug Interaction Checking**: Real-time safety validation for medication combinations
 - **Severity Assessment**: AI-powered triage and symptom severity analysis
 - **Clinical Decision Support**: Evidence-based diagnostic and treatment recommendations
-- **Personalized Dosing**: Age and weight-based medication dosage calculations
-- **Confidence Scoring**: Provides reliability indicators for AI recommendations
-- **Multi-Modal Analysis**: Combines text analysis with clinical reasoning
+- **Computer Vision Analysis**: Medical image anomaly detection and diagnostic insights
+- **Multi-Modal Analysis**: Combines text analysis with medical imaging
 
 ## 🛠️ Technology Stack
 
@@ -32,35 +32,54 @@ An advanced AI-powered medical chatbot system that provides intelligent medical 
 - **BioGPT-Large**: Specialized biomedical text generation for follow-up plans
 - **FLAN-T5-Large**: Treatment plan generation and medical advice
 - **SentenceTransformers (all-MiniLM-L6-v2)**: Medical text embeddings for FAISS vector search
-- **HuggingFace Transformers**: NLP model integration and medical entity recognition
-- **Medical NER Models**: Custom trained models for clinical entity extraction
+- **OpenCV + Computer Vision**: Medical image analysis and body part detection
 
 ### Backend
 - **Flask**: Web application framework
 - **FAISS**: Vector similarity search for medical knowledge retrieval
 - **LangChain**: AI application framework
-- **PyTorch**: Deep learning framework
+- **PyTorch**: Deep learning framework for medical models
 
 ### Data Processing
-- **Medical NER**: Named entity recognition for symptoms, conditions, medications, dosages
+- **Medical Image Processing**: X-ray, MRI, CT scan analysis with auto body part detection
 - **Document Processing**: PDF, DOCX, TXT file support with clinical data extraction
 - **Text Chunking**: Intelligent medical text segmentation for FAISS indexing
 - **Clinical Data Extraction**: Automated extraction of vital signs, lab results, medical history
 - **Vector Embeddings**: Semantic search capabilities for medical documents
-- **Knowledge Graph Processing**: Medical concept relationship mapping
 
 ## 📋 Prerequisites
 
 - Python 3.11+
-- CUDA-compatible GPU (optional, for faster processing)
+- Docker & Docker Compose (recommended)
 - Cohere API Key
 
 ## 🔧 Installation
 
+### **Option 1: Docker (Recommended)**
+
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd medicalchatbot
+   cd Medical_ChatBot
+   ```
+
+2. **Configure API Key**
+   Edit `medicalchatbot/config.py` and add your Cohere API key:
+   ```python
+   COHERE_API_KEY = "your_cohere_api_key_here"
+   ```
+
+3. **Run with Docker**
+   ```bash
+   docker-compose up --build
+   ```
+
+### **Option 2: Local Installation**
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Medical_ChatBot/medicalchatbot
    ```
 
 2. **Create virtual environment**
@@ -74,19 +93,19 @@ An advanced AI-powered medical chatbot system that provides intelligent medical 
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables**
-   Create a `.env` file in the root directory:
-   ```env
-   COHERE_API_KEY=your_cohere_api_key_here
-   FLASK_DEBUG=False
-   SECRET_KEY=your_secret_key_here
-   ```
+4. **Configure API Key**
+   Edit `config.py` and add your Cohere API key
 
 ## 🚀 Usage
 
 ### Starting the Application
 
-**Standard Mode:**
+**Docker (Recommended):**
+```bash
+docker-compose up
+```
+
+**Local Development:**
 ```bash
 python app.py
 ```
@@ -96,17 +115,23 @@ python app.py
 python run_with_memory.py
 ```
 
-The application will be available at `http://127.0.0.1:8040`
+The application will be available at `http://localhost:8040`
 
 ### Using the Medical Chatbot
 
-1. **Upload Medical Report**
+1. **Upload Clinical Report**
    - Navigate to the web interface
    - Upload a medical report (PDF, DOCX, or TXT)
    - System will process and extract clinical data
    - FAISS index will be created for semantic search
 
-2. **Interact with the Chatbot**
+2. **Upload Medical Images**
+   - Upload X-ray, MRI, CT scan images (JPG, PNG, TIFF, DICOM)
+   - AI automatically detects body part (chest, leg, arm, spine, skull)
+   - Computer vision analysis for anomaly detection
+   - Instant diagnostic insights from uploaded images
+
+3. **Interact with the Chatbot**
    
    **AI Mode (Medical Consultant)** - Triggered by:
    - "What diagnosis do you recommend?"
@@ -120,46 +145,78 @@ The application will be available at `http://127.0.0.1:8040`
    - "Are you taking any medication?"
    - General conversation and personal questions
 
-3. **Advanced Features**
+4. **Advanced Features**
    - **Drug Interaction Checking**: Automatic safety validation when multiple medications mentioned
    - **Severity Assessment**: AI determines urgency level (URGENT/ROUTINE/CLINIC)
    - **Clinical Reasoning**: Knowledge graph provides medical connections
    - **Entity Extraction**: Automatically identifies medical terms from conversation
 
-4. **Generate Medical Reports**
+5. **Generate Medical Reports**
    - Click "Generate Report" to create comprehensive PDF reports
    - Includes diagnosis, treatment plans, follow-up recommendations
    - Enhanced with AI analysis and safety assessments
+   - Integrates both clinical data and image analysis results
+
+## 🐳 Docker Deployment
+
+### **Quick Start**
+```bash
+# Clone repository
+git clone <repository-url>
+cd Medical_ChatBot
+
+# Configure API key in medicalchatbot/config.py
+# Edit COHERE_API_KEY = "your_api_key_here"
+
+# Build and run
+docker-compose up --build
+
+# Access application
+open http://localhost:8040
+```
+
+### **Docker Features**
+- 📦 **Containerized Deployment** - Easy setup and deployment
+- 💾 **Persistent Data** - Volumes for uploads, reports, logs
+- 🔄 **Auto Restart** - Service reliability and health checks
+- 🔒 **Secure Configuration** - Environment-based settings
 
 ## 📁 Project Structure
 
 ```
-medicalchatbot/
-├── config.py                 # Centralized configuration
-├── app.py                    # Main Flask application
-├── run_with_memory.py        # Memory-optimized launcher
-├── requirements.txt          # Python dependencies
-├── models/                   # AI model modules
-│   ├── chatbot.py           # Main chatbot logic with AI/Patient mode classification
-│   ├── diagnosis.py         # AI diagnosis generation with confidence scoring
-│   ├── treatment_recommendation.py  # Treatment planning with drug interaction checks
-│   ├── test_recommendation.py       # Test suggestions based on clinical data
-│   ├── followup.py          # Follow-up care planning with BioGPT
-│   ├── extract.py           # Medical data extraction from reports
-│   ├── data_processing.py   # Data preprocessing and cleaning
-│   ├── rag_analysis.py      # RAG implementation with FAISS
-│   ├── report_generation.py # PDF report creation
-│   ├── medical_ner.py       # Medical named entity recognition
-│   ├── medical_knowledge_graph.py  # Clinical reasoning and knowledge connections
-│   └── drug_interaction_checker.py # Drug safety and interaction analysis
-├── utils/                   # Utility functions
-│   └── logger.py           # Logging configuration
-├── templates/              # HTML templates
-│   └── index.html         # Web interface
-├── uploads/               # Uploaded files (temporary)
-├── reports/              # Generated PDF reports
-├── faiss_index/         # Vector database storage
-└── logs/               # Application logs
+Medical_ChatBot/
+├── Dockerfile                 # Container configuration
+├── docker-compose.yml         # Multi-service orchestration
+├── .dockerignore             # Docker build exclusions
+├── .gitignore                # Git exclusions
+├── README.md                 # Project documentation
+└── medicalchatbot/
+    ├── config.py                 # Centralized configuration
+    ├── app.py                    # Main Flask application
+    ├── run_with_memory.py        # Memory-optimized launcher
+    ├── requirements.txt          # Python dependencies
+    ├── models/                   # AI model modules
+    │   ├── chatbot.py           # Main chatbot logic with AI/Patient mode classification
+    │   ├── diagnosis.py         # AI diagnosis generation with confidence scoring
+    │   ├── treatment_recommendation.py  # Treatment planning with drug interaction checks
+    │   ├── test_recommendation.py       # Test suggestions based on clinical data
+    │   ├── followup.py          # Follow-up care planning with dynamic weekly timelines
+    │   ├── extract.py           # Medical data extraction from reports
+    │   ├── data_processing.py   # Data preprocessing and cleaning
+    │   ├── rag_analysis.py      # RAG implementation with FAISS
+    │   ├── report_generation.py # PDF report creation
+    │   ├── medical_image_analyzer.py # AI-powered medical image analysis
+    │   ├── medical_ner.py       # Medical named entity recognition
+    │   ├── medical_knowledge_graph.py  # Clinical reasoning and knowledge connections
+    │   └── drug_interaction_checker.py # Drug safety and interaction analysis
+    ├── utils/                   # Utility functions
+    │   └── logger.py           # Logging configuration
+    ├── templates/              # HTML templates
+    │   └── index.html         # Web interface
+    ├── uploads/               # Uploaded files (temporary)
+    ├── reports/              # Generated PDF reports
+    ├── faiss_index/         # Vector database storage
+    └── logs/               # Application logs
 ```
 
 ## ⚙️ Configuration
@@ -175,29 +232,27 @@ The system uses centralized configuration in `config.py`:
 - **Confidence Threshold**: 0.7 for diagnosis reliability
 - **Max Medications**: 5 per recommendation
 - **Drug Interaction Checking**: Enabled with safety reports
-- **Context Length**: 256K tokens for comprehensive analysis
+- **Context Length**: 2048 tokens for comprehensive analysis
 - **Severity Levels**: URGENT, ROUTINE, CLINIC triage classification
 - **Entity Extraction**: Symptoms, conditions, medications, dosages
 - **Clinical Reasoning**: Knowledge graph depth of 3 levels
 
 ### File Upload
-- **Allowed Types**: PDF, DOCX, DOC, TXT
-- **Max Size**: 16MB
+- **Clinical Reports**: PDF, DOCX, DOC, TXT (max 16MB)
+- **Medical Images**: JPG, PNG, TIFF, DICOM (max 50MB)
 - **Security**: File validation and sanitization
-
-## 🔒 Security Features
-
-- **Input Validation**: Comprehensive file and data validation
-- **Path Traversal Protection**: Secure file handling
-- **Session Management**: Secure user sessions
-- **Rate Limiting**: API abuse prevention
-- **Error Handling**: Graceful error management
 
 ## 🧪 API Endpoints
 
 ### File Upload
 ```http
 POST /upload_report
+Content-Type: multipart/form-data
+```
+
+### Medical Image Analysis
+```http
+POST /analyze_image
 Content-Type: multipart/form-data
 ```
 
@@ -240,7 +295,6 @@ POST /generate_report
 WARNING: No FAISS index found
 ```
 - **Solution**: Normal on first run, upload a medical report to create index
-- **Note**: System creates empty index as fallback, upload document for full functionality
 
 **Memory Issues**
 ```
@@ -252,18 +306,27 @@ CUDA out of memory
 ```
 Cohere API error
 ```
-- **Solution**: Check COHERE_API_KEY in .env file
+- **Solution**: Check COHERE_API_KEY in config.py
 - **Rate Limits**: Cohere API has usage limits, check your account status
 
-**Advanced Features Not Loading**
+**Image Analysis Fails**
 ```
-Advanced features not available
+Image validation failed
 ```
-- **Solution**: Check if medical_ner.py, medical_knowledge_graph.py, drug_interaction_checker.py exist
-- **Fallback**: System works with basic features if advanced modules unavailable
+- **Solution**: Ensure uploaded images are medical scans (X-ray, MRI, CT)
+- **Format**: Use supported formats (JPG, PNG, TIFF, DICOM)
 
 ### Logs
 Check application logs in the `logs/` directory for detailed error information.
+
+## 🔒 Security Features
+
+- **Input Validation**: Comprehensive file and data validation
+- **Path Traversal Protection**: Secure file handling
+- **Session Management**: Secure user sessions
+- **Rate Limiting**: API abuse prevention
+- **Error Handling**: Graceful error management
+- **Medical Image Validation**: Ensures only medical images are analyzed
 
 ## 🤝 Contributing
 
@@ -286,6 +349,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Flask**: Web application framework
 - **SentenceTransformers**: Semantic embeddings for medical text
 - **PyTorch**: Deep learning framework for model inference
+- **OpenCV**: Computer vision library for medical image analysis
 - **Medical AI Community**: Open-source medical NLP tools and datasets
 
 ## 📞 Support
