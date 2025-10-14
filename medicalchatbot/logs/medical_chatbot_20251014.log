@@ -1,0 +1,1122 @@
+2025-10-14 14:57:08,355 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 14:57:40,741 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 14:57:41,504 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 14:57:59,549 - __main__ - INFO - Medical image uploaded: medical_1760434079_OSPE.png
+2025-10-14 14:58:30,182 - __main__ - INFO - Medical image uploaded: medical_1760434110_CubitusValgus_Radiology.png
+2025-10-14 14:58:35,642 - __main__ - INFO - Report generation requested
+2025-10-14 14:58:35,642 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 14:58:37,252 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Fatigue",
+        "Shortness of breath",
+        "Chest pain",
+        "Persistent cough"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 14:58:37,257 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 14:58:38,523 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Fatigue",
+        "Shortness of breath",
+        "Chest pain",
+        "Persistent cough"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 14:58:38,525 - models.diagnosis - INFO - Symptoms: Fatigue, Shortness of breath, Chest pain, Persistent cough
+2025-10-14 14:58:38,525 - models.diagnosis - INFO - Vitals: heart_rate: 78, blood_pressure: 130/85, temperature: 98.4
+2025-10-14 14:58:38,525 - models.diagnosis - INFO - Tests: - Total Cholesterol: 220 mg/dL, - LDL: 145 mg/dL, - HDL: 40 mg/dL, - Triglycerides: 180 mg/dL
+2025-10-14 14:58:38,526 - models.diagnosis - INFO - Preliminary Diagnosis: Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+2025-10-14 14:58:46,717 - models.diagnosis - INFO - Raw Diagnosis Output:
+Based on the provided patient data, here is the differential diagnosis with confidence scores, considering symptom patterns, vital signs, laboratory results, and preliminary assessment:
+
+1. **Coronary Artery Disease (CAD) - 45%**  
+   - **Rationale**: Chest pain, fatigue, and shortness of breath are classic symptoms of CAD. Elevated total cholesterol (220 mg/dL), high LDL (145 mg/dL), low HDL (40 mg/dL), and elevated triglycerides (180 mg/dL) strongly suggest dyslipidemia, a major risk factor for CAD. Minimal physical activity further increases the likelihood.  
+   - **Confidence**: Moderate-high, given the lipid profile and symptom complex.
+
+2. **Chronic Obstructive Pulmonary Disease (COPD) - 35%**  
+   - **Rationale**: Persistent cough, shortness of breath, and fatigue align with COPD, especially in the context of a smoking history and preliminary assessment of chronic bronchitis. However, chest pain is less typical unless there is coexisting cardiovascular disease.  
+   - **Confidence**: Moderate, as symptoms and history strongly suggest COPD, but chest pain requires further evaluation.
+
+3. **Congestive Heart Failure (CHF) - 15%**  
+   - **Rationale**: Fatigue, shortness of breath, and chest pain can occur in CHF, especially with underlying CAD risk factors. However, vital signs (normal heart rate and blood pressure) do not strongly suggest acute decompensation.  
+   - **Confidence**: Low-moderate, as symptoms overlap with CAD but lack clear evidence of volume overload or elevated filling pressures.
+
+4. **Pulmonary Embolism (PE) - 5%**  
+   - **Rationale**: Shortness of breath, chest pain, and fatigue could suggest PE, but the absence of tachycardia (heart rate 78) and no mention of risk factors (e.g., immobility, surgery) reduce likelihood.  
+   - **Confidence**: Low, as clinical presentation and vital signs are not strongly indicative.
+
+**Final Differential Diagnosis:**  
+1. **Coronary Artery Disease (CAD)** - 45%  
+2. **Chronic Obstructive Pulmonary Disease (COPD)** - 35%  
+3. **Congestive Heart Failure (CHF)** - 15%  
+4. **Pulmonary Embolism (PE)** - 5%  
+
+Further diagnostic workup (e.g., ECG, echocardiogram, pulmonary function tests, D-dimer) is recommended to confirm the primary diagnosis.
+2025-10-14 14:59:44,597 - models.followup - INFO - Processing diagnosis...
+2025-10-14 14:59:44,598 - models.followup - ERROR - Error processing diagnosis: diagnose() takes 1 positional argument but 3 were given
+2025-10-14 14:59:44,598 - models.followup - INFO - Patient Data: 
+    Symptoms: ['Fatigue', 'Shortness of breath', 'Chest pain', 'Persistent cough']
+    Medical History: {'full_report': 'Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'name': 'John Doe', 'age': '45', 'gender': 'Male', 'medical_history': 'Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'symptoms': ['Fatigue', 'Shortness of breath', 'Chest pain', 'Persistent cough'], 'vital_signs': {'heart_rate': '78', 'blood_pressure': '130/85', 'temperature': '98.4'}, 'test_results': {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}, 'medications': [], 'preliminary_diagnosis': 'Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity'}  # Use diagnosis to represent the patient's history
+    Test Results: {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}
+    Predicted Diagnosis: General condition
+    
+2025-10-14 14:59:44,636 - models.followup - INFO - Refining follow-up plan using Cohere...
+2025-10-14 14:59:53,677 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 14:59:53,686 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 14:59:54,160 - models.followup - INFO - Refined Follow-Up Plan Generated.
+2025-10-14 14:59:54,160 - models.followup - INFO - Final Follow-Up Plan Generated.
+2025-10-14 14:59:54,160 - __main__ - ERROR - PDF generation failed: cannot access local variable 'initial_followup' where it is not associated with a value
+2025-10-14 15:00:25,110 - __main__ - INFO - Medical image uploaded: medical_1760434225_X-Ray.JPG
+2025-10-14 15:01:24,907 - __main__ - INFO - File uploaded successfully: 1760434284_Formatted_Clinical_Report.docx
+2025-10-14 15:01:32,342 - __main__ - INFO - Report generation requested
+2025-10-14 15:01:32,342 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 15:01:33,648 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Fatigue",
+        "Shortness of breath",
+        "Chest pain",
+        "Persistent cough"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 15:01:33,651 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 15:01:34,909 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Fatigue",
+        "Shortness of breath",
+        "Chest pain",
+        "Persistent cough"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 15:01:34,910 - models.diagnosis - INFO - Symptoms: Fatigue, Shortness of breath, Chest pain, Persistent cough
+2025-10-14 15:01:34,911 - models.diagnosis - INFO - Vitals: heart_rate: 78, blood_pressure: 130/85, temperature: 98.4
+2025-10-14 15:01:34,911 - models.diagnosis - INFO - Tests: - Total Cholesterol: 220 mg/dL, - LDL: 145 mg/dL, - HDL: 40 mg/dL, - Triglycerides: 180 mg/dL
+2025-10-14 15:01:34,911 - models.diagnosis - INFO - Preliminary Diagnosis: Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+2025-10-14 15:01:41,879 - models.diagnosis - INFO - Raw Diagnosis Output:
+Based on the provided patient data, here is the differential diagnosis with confidence scores:
+
+1. **Coronary Artery Disease (CAD) - 85%**  
+   - **Rationale**:  
+     - **Symptom patterns**: Chest pain, fatigue, and shortness of breath are classic symptoms of CAD, especially in the context of elevated cardiovascular risk factors.  
+     - **Laboratory results**: Total cholesterol (220 mg/dL), LDL (145 mg/dL), HDL (40 mg/dL), and triglycerides (180 mg/dL) indicate dyslipidemia, a major risk factor for CAD.  
+     - **Vital signs**: Blood pressure (130/85 mmHg) is mildly elevated, contributing to cardiovascular risk.  
+     - **Lifestyle factors**: Minimal physical activity further increases CAD risk.  
+     - **Confidence**: High, given the strong correlation between symptoms, lab results, and risk factors.  
+
+2. **Chronic Bronchitis (Exacerbation) - 10%**  
+   - **Rationale**:  
+     - **Symptom patterns**: Persistent cough and shortness of breath align with chronic bronchitis, especially with a smoking history.  
+     - **Vital signs**: Normal heart rate and temperature do not suggest acute infection.  
+     - **Laboratory results**: Lipid panel is unrelated to bronchitis.  
+     - **Confidence**: Moderate, as chronic bronchitis could explain respiratory symptoms but does not account for chest pain or fatigue.  
+
+3. **Congestive Heart Failure (CHF) - 5%**  
+   - **Rationale**:  
+     - **Symptom patterns**: Fatigue, shortness of breath, and chest pain can occur in CHF, though typically accompanied by peripheral edema or elevated jugular venous pressure (not mentioned here).  
+     - **Vital signs**: Normal heart rate and blood pressure make CHF less likely but not impossible.  
+     - **Laboratory results**: Dyslipidemia is a risk factor for CHF indirectly via CAD.  
+     - **Confidence**: Low, as CHF is less likely without additional signs of volume overload or cardiac dysfunction.  
+
+**Final Differential Diagnosis:**  
+1. Coronary Artery Disease (CAD) - 85%  
+2. Chronic Bronchitis (Exacerbation) - 10%  
+3. Congestive Heart Failure (CHF) - 5%  
+
+Further diagnostic steps:  
+- **ECG** and **echocardiogram** to evaluate cardiac function and ischemia.  
+- **Pulmonary function tests (PFTs)** to assess for chronic bronchitis or COPD.  
+- **Cardiac stress test** to evaluate for inducible ischemia.  
+- **Smoking cessation counseling** and lipid management regardless of the final diagnosis.
+2025-10-14 15:02:37,107 - models.followup - INFO - Processing diagnosis...
+2025-10-14 15:02:37,107 - models.followup - ERROR - Error processing diagnosis: diagnose() takes 1 positional argument but 3 were given
+2025-10-14 15:02:37,107 - models.followup - INFO - Patient Data: 
+    Symptoms: ['Fatigue', 'Shortness of breath', 'Chest pain', 'Persistent cough']
+    Medical History: {'full_report': 'Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'name': 'John Doe', 'age': '45', 'gender': 'Male', 'medical_history': 'Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'symptoms': ['Fatigue', 'Shortness of breath', 'Chest pain', 'Persistent cough'], 'vital_signs': {'heart_rate': '78', 'blood_pressure': '130/85', 'temperature': '98.4'}, 'test_results': {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}, 'medications': [], 'preliminary_diagnosis': 'Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity'}  # Use diagnosis to represent the patient's history
+    Test Results: {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}
+    Predicted Diagnosis: General condition
+    
+2025-10-14 15:02:37,121 - models.followup - INFO - Refining follow-up plan using Cohere...
+2025-10-14 15:02:50,659 - models.followup - INFO - Refined Follow-Up Plan Generated.
+2025-10-14 15:02:50,660 - models.followup - INFO - Final Follow-Up Plan Generated.
+2025-10-14 15:02:50,660 - __main__ - ERROR - PDF generation failed: cannot access local variable 'initial_followup' where it is not associated with a value
+2025-10-14 15:06:03,696 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:06:27,079 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:06:27,915 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 15:07:01,806 - __main__ - INFO - Medical image uploaded: medical_1760434621_X-Ray.JPG
+2025-10-14 15:13:00,925 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:13:22,147 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:13:22,853 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 15:13:37,141 - __main__ - INFO - File uploaded successfully: 1760435017_Formatted_Clinical_Report.docx
+2025-10-14 15:13:43,783 - __main__ - INFO - Report generation requested
+2025-10-14 15:13:43,785 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 15:13:45,102 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Shortness of breath",
+        "Persistent cough",
+        "Fatigue",
+        "Chest pain"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 15:13:45,104 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 15:13:46,447 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Shortness of breath",
+        "Persistent cough",
+        "Fatigue",
+        "Chest pain"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 15:13:46,449 - models.diagnosis - INFO - Symptoms: Shortness of breath, Persistent cough, Fatigue, Chest pain
+2025-10-14 15:13:46,450 - models.diagnosis - INFO - Vitals: heart_rate: 78, blood_pressure: 130/85, temperature: 98.4
+2025-10-14 15:13:46,450 - models.diagnosis - INFO - Tests: - Total Cholesterol: 220 mg/dL, - LDL: 145 mg/dL, - HDL: 40 mg/dL, - Triglycerides: 180 mg/dL
+2025-10-14 15:13:46,450 - models.diagnosis - INFO - Preliminary Diagnosis: Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+2025-10-14 15:13:54,223 - models.diagnosis - INFO - Raw Diagnosis Output:
+Based on the provided patient data, here is a differential diagnosis with confidence scores, considering symptom patterns, vital signs, laboratory results, and preliminary assessment:
+
+1. **Chronic Obstructive Pulmonary Disease (COPD) - 85%**  
+   - **Rationale**: The combination of **shortness of breath**, **persistent cough**, **fatigue**, and **chest pain** aligns strongly with COPD, especially given the **smoking history** and **minimal physical activity**. Chronic bronchitis is a subset of COPD, and the symptoms are consistent with airflow obstruction.  
+   - **Supporting Evidence**: Persistent cough and shortness of breath are hallmark symptoms of COPD. The absence of significant vital sign abnormalities (e.g., tachycardia or hypertension) does not rule out COPD but is consistent with a chronic condition.  
+
+2. **Ischemic Heart Disease (IHD) - 10%**  
+   - **Rationale**: The patient’s **chest pain**, **elevated total cholesterol (220 mg/dL)**, **high LDL (145 mg/dL)**, **low HDL (40 mg/dL)**, and **elevated triglycerides (180 mg/dL)** suggest a risk for atherosclerosis and coronary artery disease. Fatigue and shortness of breath could also be angina equivalents.  
+   - **Supporting Evidence**: Dyslipidemia is a major risk factor for IHD. However, the absence of acute changes in vital signs (e.g., tachycardia or hypotension) and the prominence of respiratory symptoms reduce the confidence in this diagnosis.  
+
+3. **Congestive Heart Failure (CHF) - 5%**  
+   - **Rationale**: **Shortness of breath**, **fatigue**, and **chest pain** can occur in CHF, especially if there is underlying cardiac dysfunction. The patient’s dyslipidemia could contribute to coronary artery disease, a common cause of CHF.  
+   - **Supporting Evidence**: Normal blood pressure and heart rate make CHF less likely, but it remains a possible alternative diagnosis, particularly if there is undiagnosed cardiac dysfunction.  
+
+**Final Differential Diagnosis:**  
+1. Chronic Obstructive Pulmonary Disease (COPD) - 85%  
+2. Ischemic Heart Disease (IHD) - 10%  
+3. Congestive Heart Failure (CHF) - 5%  
+
+**Next Steps**:  
+- Pulmonary function tests (PFTs) to confirm COPD.  
+- Electrocardiogram (ECG) and cardiac enzymes to evaluate for IHD or CHF.  
+- Smoking cessation counseling and pulmonary rehabilitation for COPD management.  
+- Lipid-lowering therapy to address dyslipidemia and reduce cardiovascular risk.
+2025-10-14 15:14:57,169 - models.followup - INFO - Processing diagnosis...
+2025-10-14 15:14:57,170 - models.followup - ERROR - Error processing diagnosis: diagnose() takes 1 positional argument but 3 were given
+2025-10-14 15:14:57,170 - models.followup - INFO - Patient Data: 
+    Symptoms: ['Shortness of breath', 'Persistent cough', 'Fatigue', 'Chest pain']
+    Medical History: {'full_report': 'Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'name': 'John Doe', 'age': '45', 'gender': 'Male', 'medical_history': 'Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'symptoms': ['Shortness of breath', 'Persistent cough', 'Fatigue', 'Chest pain'], 'vital_signs': {'heart_rate': '78', 'blood_pressure': '130/85', 'temperature': '98.4'}, 'test_results': {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}, 'medications': [], 'preliminary_diagnosis': 'Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity'}  # Use diagnosis to represent the patient's history
+    Test Results: {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}
+    Predicted Diagnosis: General condition
+    
+2025-10-14 15:14:57,200 - models.followup - INFO - Refining follow-up plan using Cohere...
+2025-10-14 15:15:08,039 - models.followup - INFO - Refined Follow-Up Plan Generated.
+2025-10-14 15:15:08,039 - models.followup - INFO - Final Follow-Up Plan Generated.
+2025-10-14 15:15:08,039 - __main__ - ERROR - PDF generation failed: cannot access local variable 'initial_followup' where it is not associated with a value
+2025-10-14 15:21:06,971 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:21:30,177 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:21:30,969 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 15:21:39,851 - __main__ - INFO - File uploaded successfully: 1760435499_Formatted_Clinical_Report.docx
+2025-10-14 15:21:42,978 - __main__ - INFO - Report generation requested
+2025-10-14 15:21:42,979 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 15:21:44,389 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Persistent cough",
+        "Fatigue",
+        "Chest pain",
+        "Shortness of breath"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 15:21:44,390 - models.extract - INFO - Received report content:
+Clinical Report
+Patient Information
+Patient Name: John Doe
+Age: 45
+Gender: Male
+Medical Record Number: MRN-2025-0001
+Date of Admission: 2025-03-27
+Primary Physician: Dr. Smith
+Emergency Contact: Jane Doe (Spouse) - +1-234-567-8901
+Medical History
+Chronic Conditions:
+- Hypertension (Diagnosed: 2020)
+- Hyperlipidemia (Diagnosed: 2022)
+Past Surgeries:
+- Appendectomy (2015)
+Allergies:
+- Penicillin (Mild rash reaction)
+Family Medical History:
+- Father: Hypertension, Diabetes
+- Mother: Asthma
+Symptoms
+- Persistent cough (Duration: 2 months, worsened over time)
+- Shortness of breath (Triggered by exertion, intermittent)
+- Fatigue (Chronic, affecting daily activities)
+- Chest pain (Mild, occasional, associated with coughing)
+Vital Signs (At Admission)
+Temperature: 98.4°F (36.9°C)
+Heart Rate: 78 bpm
+Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)
+Respiratory Rate: 18 breaths/min
+Oxygen Saturation (SpO2): 96%
+Test Results
+Complete Blood Count (CBC): Within normal limits (No signs of infection or anemia)
+Chest X-Ray: Mild lung inflammation (Localized in the lower lobes)
+ECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)
+Lipid Profile:
+- Total Cholesterol: 220 mg/dL (Elevated)
+- LDL: 145 mg/dL (Elevated)
+- HDL: 40 mg/dL (Low)
+- Triglycerides: 180 mg/dL (Borderline High)
+Medications
+- Aspirin 75 mg - Once daily (Antiplatelet therapy)
+- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)
+- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)
+Lifestyle Factors
+Smoking Status: Active smoker (10 cigarettes/day for 20 years)
+Alcohol Consumption: Occasional (2-3 drinks/week)
+Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+Diet: High in saturated fats, low in fiber
+Preliminary Diagnosis
+- Chronic Bronchitis (Related to smoking history and persistent cough)
+- Hypertension (Partially controlled)
+- Dyslipidemia (Elevated cholesterol levels)
+2025-10-14 15:21:45,769 - models.extract - INFO - Final Extracted Data:
+{
+    "full_report": "Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "name": "John Doe\nAge",
+    "age": "45",
+    "gender": "Male",
+    "medical_history": "Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4\u00b0F (36.9\u00b0C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)",
+    "symptoms": [
+        "Persistent cough",
+        "Fatigue",
+        "Chest pain",
+        "Shortness of breath"
+    ],
+    "vital_signs": {
+        "heart_rate": "78",
+        "blood_pressure": "130/85",
+        "temperature": "98.4"
+    },
+    "test_results": {
+        "- Total Cholesterol": "220 mg/dL",
+        "- LDL": "145 mg/dL",
+        "- HDL": "40 mg/dL",
+        "- Triglycerides": "180 mg/dL"
+    },
+    "medications": [],
+    "preliminary_diagnosis": "Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity"
+}
+2025-10-14 15:21:45,772 - models.diagnosis - INFO - Symptoms: Persistent cough, Fatigue, Chest pain, Shortness of breath
+2025-10-14 15:21:45,772 - models.diagnosis - INFO - Vitals: heart_rate: 78, blood_pressure: 130/85, temperature: 98.4
+2025-10-14 15:21:45,773 - models.diagnosis - INFO - Tests: - Total Cholesterol: 220 mg/dL, - LDL: 145 mg/dL, - HDL: 40 mg/dL, - Triglycerides: 180 mg/dL
+2025-10-14 15:21:45,773 - models.diagnosis - INFO - Preliminary Diagnosis: Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity
+2025-10-14 15:21:54,426 - models.diagnosis - INFO - Raw Diagnosis Output:
+Based on the provided patient data, here is the differential diagnosis with confidence scores:
+
+1. **Chronic Obstructive Pulmonary Disease (COPD) - 85%**  
+   - **Rationale**: The combination of persistent cough, fatigue, chest pain, and shortness of breath, along with a smoking history and minimal physical activity, strongly suggests COPD. Chronic bronchitis, a subtype of COPD, aligns with the preliminary assessment. The symptoms are consistent with airway obstruction and inflammation, which are hallmarks of COPD.  
+   - **Supporting Evidence**: Smoking history is the primary risk factor for COPD. The absence of significant vital sign abnormalities (e.g., normal heart rate and blood pressure) and the focus on respiratory symptoms further support this diagnosis.  
+
+2. **Coronary Artery Disease (CAD) - 10%**  
+   - **Rationale**: Chest pain, shortness of breath, and abnormal lipid profile (elevated total cholesterol, LDL, and triglycerides, with low HDL) raise concern for CAD. The lipid panel indicates significant dyslipidemia, a major risk factor for atherosclerosis and CAD.  
+   - **Supporting Evidence**: The lipid profile (Total Cholesterol: 220 mg/dL, LDL: 145 mg/dL, HDL: 40 mg/dL, Triglycerides: 180 mg/dL) is strongly associated with cardiovascular risk. However, the respiratory symptoms and smoking history make COPD a more likely primary diagnosis, reducing the confidence in CAD as the primary cause.  
+
+3. **Congestive Heart Failure (CHF) - 5%**  
+   - **Rationale**: Fatigue, shortness of breath, and chest pain can occur in CHF, especially if there is underlying CAD or hypertension. However, the absence of elevated heart rate, normal blood pressure, and no evidence of fluid overload or edema make this less likely.  
+   - **Supporting Evidence**: The vital signs are within normal limits, and there is no mention of peripheral edema or elevated jugular venous pressure, which are common in CHF. The lipid profile, while abnormal, does not directly point to CHF without other cardiac findings.  
+
+**Final Differential Diagnosis:**  
+1. Chronic Obstructive Pulmonary Disease (COPD) - 85%  
+2. Coronary Artery Disease (CAD) - 10%  
+3. Congestive Heart Failure (CHF) - 5%  
+
+**Next Steps:**  
+- Pulmonary function tests (PFTs) to confirm COPD.  
+- Further cardiac evaluation (e.g., ECG, stress test) if chest pain persists or worsens.  
+- Lifestyle interventions (smoking cessation, increased physical activity, and lipid management) to address modifiable risk factors.
+2025-10-14 15:22:02,181 - __main__ - INFO - Medical image uploaded: medical_1760435522_Barton_fracture_Radiology.png
+2025-10-14 15:22:48,177 - models.followup - INFO - Processing diagnosis...
+2025-10-14 15:22:48,178 - models.followup - ERROR - Error processing diagnosis: diagnose() takes 1 positional argument but 3 were given
+2025-10-14 15:22:48,178 - models.followup - INFO - Patient Data: 
+    Symptoms: ['Persistent cough', 'Fatigue', 'Chest pain', 'Shortness of breath']
+    Medical History: {'full_report': 'Clinical Report\nPatient Information\nPatient Name: John Doe\nAge: 45\nGender: Male\nMedical Record Number: MRN-2025-0001\nDate of Admission: 2025-03-27\nPrimary Physician: Dr. Smith\nEmergency Contact: Jane Doe (Spouse) - +1-234-567-8901\nMedical History\nChronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'name': 'John Doe', 'age': '45', 'gender': 'Male', 'medical_history': 'Chronic Conditions:\n- Hypertension (Diagnosed: 2020)\n- Hyperlipidemia (Diagnosed: 2022)\nPast Surgeries:\n- Appendectomy (2015)\nAllergies:\n- Penicillin (Mild rash reaction)\nFamily Medical History:\n- Father: Hypertension, Diabetes\n- Mother: Asthma\nSymptoms\n- Persistent cough (Duration: 2 months, worsened over time)\n- Shortness of breath (Triggered by exertion, intermittent)\n- Fatigue (Chronic, affecting daily activities)\n- Chest pain (Mild, occasional, associated with coughing)\nVital Signs (At Admission)\nTemperature: 98.4°F (36.9°C)\nHeart Rate: 78 bpm\nBlood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia) Blood Pressure: 130/85 mmHg (Elevated)\nRespiratory Rate: 18 breaths/min\nOxygen Saturation (SpO2): 96%\nTest Results\nComplete Blood Count (CBC): Within normal limits (No signs of infection or anemia)\nChest X-Ray: Mild lung inflammation (Localized in the lower lobes)\nECG (Electrocardiogram): Normal sinus rhythm (No arrhythmias or ischemic changes)\nLipid Profile:\n- Total Cholesterol: 220 mg/dL (Elevated)\n- LDL: 145 mg/dL (Elevated)\n- HDL: 40 mg/dL (Low)\n- Triglycerides: 180 mg/dL (Borderline High)\nMedications\n- Aspirin 75 mg - Once daily (Antiplatelet therapy)\n- Lisinopril 10 mg - Once daily (ACE inhibitor for hypertension)\n- Atorvastatin 20 mg - Once daily (Lipid-lowering agent)\nLifestyle Factors\nSmoking Status: Active smoker (10 cigarettes/day for 20 years)\nAlcohol Consumption: Occasional (2-3 drinks/week)\nExercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity\nDiet: High in saturated fats, low in fiber\nPreliminary Diagnosis\n- Chronic Bronchitis (Related to smoking history and persistent cough)\n- Hypertension (Partially controlled)\n- Dyslipidemia (Elevated cholesterol levels)', 'symptoms': ['Persistent cough', 'Fatigue', 'Chest pain', 'Shortness of breath'], 'vital_signs': {'heart_rate': '78', 'blood_pressure': '130/85', 'temperature': '98.4'}, 'test_results': {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}, 'medications': [], 'preliminary_diagnosis': 'Chronic Bronchitis (Related to smoking history and persistent cough) Exercise: Minimal physical activity'}  # Use diagnosis to represent the patient's history
+    Test Results: {'- Total Cholesterol': '220 mg/dL', '- LDL': '145 mg/dL', '- HDL': '40 mg/dL', '- Triglycerides': '180 mg/dL'}
+    Predicted Diagnosis: General condition
+    
+2025-10-14 15:22:48,200 - models.followup - INFO - Refining follow-up plan using Cohere...
+2025-10-14 15:23:02,105 - models.followup - INFO - Refined Follow-Up Plan Generated.
+2025-10-14 15:23:02,105 - models.followup - INFO - Final Follow-Up Plan Generated.
+2025-10-14 15:23:02,115 - __main__ - INFO - Report generated successfully: report_John_Doe_1760435582.pdf
+2025-10-14 15:30:09,496 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:30:09,507 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:30:14,249 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:30:14,250 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:30:14,781 - __main__ - ERROR - Error processing question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\app.py", line 199, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\models\chatbot.py", line 208, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\models\chatbot.py", line 182, in classify_and_respond
+    patient_response = co.chat(
+                       ^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 103, in _wrapped
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 35, in _wrapped
+    return method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 946, in chat
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'id': '1f605c45-9aca-4945-9674-945ba8c69060', 'message': 'invalid api token'}
+2025-10-14 15:32:01,024 - models.chatbot - WARNING - Cohere API unavailable: status_code: 401, body: {'id': '9eb86f9b-3ad5-457c-927c-771fcb26c2ff', 'message': 'invalid api token'}
+2025-10-14 15:32:22,099 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:32:46,114 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:32:47,109 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 15:33:10,359 - __main__ - INFO - File uploaded successfully: 1760436190_Formatted_Clinical_Report.docx
+2025-10-14 15:33:14,406 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:33:14,410 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:33:18,664 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:33:18,664 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:33:35,885 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:33:35,886 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:34:47,326 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:35:10,853 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:35:11,711 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 15:35:20,763 - __main__ - INFO - File uploaded successfully: 1760436320_Formatted_Clinical_Report.docx
+2025-10-14 15:35:24,044 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:35:24,047 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:35:30,490 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:35:30,491 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:35:31,088 - __main__ - ERROR - Error processing question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\app.py", line 199, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\models\chatbot.py", line 208, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\models\chatbot.py", line 182, in classify_and_respond
+    patient_response = co.chat(
+                       ^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 103, in _wrapped
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 35, in _wrapped
+    return method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 946, in chat
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'id': 'ede678bb-2cbc-4795-899d-73d35c19822a', 'message': 'invalid api token'}
+2025-10-14 15:39:30,828 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:39:54,449 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:39:55,339 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 15:40:03,891 - __main__ - INFO - Medical image uploaded: medical_1760436603_Cleidocranial_dysostosis_Radiology.png
+2025-10-14 15:40:04,324 - __main__ - ERROR - Error analyzing medical image
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\app.py", line 340, in analyze_medical_image
+    return jsonify({
+           ^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type intc is not JSON serializable
+2025-10-14 15:40:25,616 - __main__ - INFO - File uploaded successfully: 1760436625_Formatted_Clinical_Report.docx
+2025-10-14 15:40:30,981 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:40:30,993 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:40:41,163 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 15:40:41,164 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 15:40:41,556 - __main__ - ERROR - Error processing question
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\app.py", line 199, in ask_question
+    response = chatbot_interaction(question, clinical_data, faiss_index, chat_history)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\models\chatbot.py", line 209, in chatbot_interaction
+    answer = classify_and_respond(question, faiss_index, clinical_data, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\models\chatbot.py", line 183, in classify_and_respond
+    patient_response = co.chat(
+                       ^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 103, in _wrapped
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\client.py", line 35, in _wrapped
+    return method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\cohere\base_client.py", line 946, in chat
+    raise UnauthorizedError(
+cohere.errors.unauthorized_error.UnauthorizedError: status_code: 401, body: {'id': 'de8eae0e-4848-4d83-b20d-3a07d05beb5f', 'message': 'invalid api token'}
+2025-10-14 15:42:26,136 - models.chatbot - INFO - [INFO] Cohere client initialized successfully.
+2025-10-14 15:42:46,393 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 15:43:07,592 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 15:43:08,327 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 16:00:27,079 - __main__ - INFO - File uploaded successfully: 1760437827_Formatted_Clinical_Report.docx
+2025-10-14 16:00:31,866 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:00:31,881 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:00:37,122 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:00:37,123 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:00:45,463 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:00:45,465 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:01:06,671 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:01:06,671 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:01:14,528 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:01:14,529 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:02:08,517 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:02:08,518 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:02:32,471 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:02:32,471 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:02:46,876 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:02:46,878 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:03:02,245 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:03:02,245 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:03:09,899 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:03:09,899 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:03:32,031 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:03:32,032 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:03:36,755 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:03:36,756 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:04:00,539 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:04:00,539 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:04:07,946 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:04:07,947 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:04:26,800 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:04:26,800 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:05:31,111 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:05:31,111 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:07:14,435 - __main__ - INFO - Loading FAISS index from local storage...
+2025-10-14 16:07:14,436 - __main__ - WARNING - No FAISS index found: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open faiss_index\index.faiss for reading: No such file or directory. Creating empty index.
+2025-10-14 16:10:53,195 - __main__ - INFO - Medical image uploaded: medical_1760438453_X-_RAY.png
+2025-10-14 16:13:21,949 - __main__ - INFO - Medical image uploaded: medical_1760438601_OSPE.png
+2025-10-14 16:13:22,440 - __main__ - ERROR - Error analyzing medical image
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\app.py", line 340, in analyze_medical_image
+    return jsonify({
+           ^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type intc is not JSON serializable
+2025-10-14 16:13:47,475 - __main__ - INFO - Medical image uploaded: medical_1760438627_OSPE.png
+2025-10-14 16:13:47,964 - __main__ - ERROR - Error analyzing medical image
+Traceback (most recent call last):
+  File "C:\Users\IMMERSIVE36\Desktop\Medical_ChatBot\medicalchatbot\app.py", line 340, in analyze_medical_image
+    return jsonify({
+           ^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\IMMERSIVE36\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type intc is not JSON serializable
+2025-10-14 16:16:04,843 - models.chatbot - INFO - [INFO] Cohere client initialized successfully.
+2025-10-14 16:16:21,671 - models.extract - INFO - Clinical NER model loaded successfully.
+2025-10-14 16:16:43,340 - models.followup - INFO - BioGPT Model Loaded on: cpu
+2025-10-14 16:16:44,056 - __main__ - INFO - Loading Hugging Face embedding model...
+2025-10-14 16:17:23,224 - __main__ - INFO - Medical image uploaded: medical_1760438843_OSPE.png
+2025-10-14 16:18:02,504 - __main__ - INFO - Medical image uploaded: medical_1760438882_CubitusValgus_Radiology.png

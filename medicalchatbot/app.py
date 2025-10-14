@@ -19,6 +19,7 @@ from models import (
     generate_followup_plan,
     extract_report_data,
 )
+from models.medical_image_analyzer import medical_analyzer
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
@@ -45,6 +46,10 @@ app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-change-in-production')
 # File validation from config
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in UPLOAD_CONFIG["allowed_extensions"]
+
+def allowed_image_file(filename):
+    image_extensions = {'jpg', 'jpeg', 'png', 'bmp', 'tiff', 'dcm'}
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in image_extensions
 
 def validate_file_size(file):
     file.seek(0, os.SEEK_END)
@@ -210,22 +215,36 @@ def generate_report():
     try:
         logger.info("Report generation requested")
 
-        # Authorization check
-        if not session.get('has_data'):
-            return jsonify({"success": False, "error": "Upload a clinical report first."}), 401
+        # Authorization check - need either clinical data or image data
+        has_clinical = session.get('has_data', False)
+        has_image = session.get('has_image_data', False)
         
-        clinical_data = session.get('clinical_data')
-        if not clinical_data:
-            return jsonify({"success": False, "error": "No clinical data available."}), 400
+        if not has_clinical and not has_image:
+            return jsonify({"success": False, "error": "Upload a clinical report or medical image first."}), 401
+        
+        clinical_data = session.get('clinical_data', {})
+        image_analysis = session.get('image_analysis', {})
 
         # Extract structured report data with error handling
         try:
-            report_data = extract_report_data(clinical_data.get("full_text", ""))
+            if has_clinical:
+                report_data = extract_report_data(clinical_data.get("full_text", ""))
+            else:
+                # Create report data from image analysis
+                report_data = {
+                    "name": "Patient",
+                    "age": "Unknown",
+                    "gender": "Unknown",
+                    "symptoms": {},
+                    "test_results": image_analysis.get('clinical_findings', []),
+                    "vital_signs": {}
+                }
+            
             if not report_data:
-                raise ValueError("No data extracted from report")
+                raise ValueError("No data extracted")
         except Exception as e:
             logger.error(f"Data extraction failed: {e}")
-            return jsonify({"success": False, "error": "Failed to process clinical data."}), 500
+            return jsonify({"success": False, "error": "Failed to process data."}), 500
 
         # Validate required fields
         required_fields = ["name", "age", "gender", "symptoms", "test_results", "vital_signs"]
@@ -266,6 +285,68 @@ def generate_report():
     except Exception as e:
         logger.exception("Unexpected error generating report")
         return jsonify({"success": False, "error": "Internal server error."}), 500
+
+@app.route("/analyze_image", methods=["POST"])
+def analyze_medical_image():
+    try:
+        # Validate file presence
+        if 'medical_image' not in request.files:
+            return jsonify({"success": False, "error": "No image file provided."}), 400
+        
+        file = request.files['medical_image']
+        if file.filename == '':
+            return jsonify({"success": False, "error": "No file selected."}), 400
+        
+        # Validate image file type
+        if not file or not allowed_image_file(file.filename):
+            return jsonify({"success": False, "error": "Invalid image type. Only JPG, PNG, TIFF, DCM allowed."}), 400
+        
+        # Validate file size (max 50MB for medical images)
+        file.seek(0, os.SEEK_END)
+        size = file.tell()
+        file.seek(0)
+        if size > 50 * 1024 * 1024:  # 50MB limit
+            return jsonify({"success": False, "error": "Image too large. Maximum 50MB allowed."}), 400
+
+        # Secure file handling
+        filename = secure_filename(file.filename)
+        timestamp = str(int(time.time()))
+        filename = f"medical_{timestamp}_{filename}"
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        
+        file.save(filepath)
+        logger.info(f"Medical image uploaded: {filename}")
+
+        # Get image type and body part from form data
+        image_type = request.form.get('image_type', 'xray')
+        body_part = request.form.get('body_part', '').strip()
+        
+        # Analyze the image with user-specified body part
+        analysis_result = medical_analyzer.generate_analysis_report(filepath, image_type, body_part)
+        
+        if not analysis_result:
+            return jsonify({"success": False, "error": "Image analysis failed."}), 500
+        
+        # Store analysis in session (don't auto-generate report)
+        session['image_analysis'] = analysis_result
+        session['has_image_data'] = True
+        
+        # Clean up uploaded file
+        try:
+            os.remove(filepath)
+        except OSError:
+            logger.warning(f"Could not remove temporary file: {filepath}")
+
+        return jsonify({
+            "success": True, 
+            "analysis": analysis_result,
+            "message": "Image analyzed successfully."
+        })
+        
+    except Exception as e:
+        logger.exception("Error analyzing medical image")
+        return jsonify({"success": False, "error": "Internal server error."}), 500
+
 # Start app
 if __name__ == "__main__":
     # Security: Disable debug in production

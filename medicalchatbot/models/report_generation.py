@@ -54,8 +54,12 @@ def generate_pdf_report(patient_info):
         conclusion_raw = generate_conclusion(predicted_diagnosis, treatment_plan, follow_up_plan=followup_plan)
         conclusion = remove_emojis(str(conclusion_raw))
 
-        symptoms = ', '.join(patient_info['symptoms']) if isinstance(patient_info['symptoms'], list) else str(patient_info['symptoms'])
-        medications = ', '.join(patient_info['medications']) if isinstance(patient_info['medications'], list) else str(patient_info['medications'])
+        symptoms = ', '.join(patient_info['symptoms']) if isinstance(patient_info['symptoms'], list) else str(patient_info.get('symptoms', 'No symptoms recorded'))
+        medications = ', '.join(patient_info.get('medications', [])) if isinstance(patient_info.get('medications'), list) else str(patient_info.get('medications', 'No medications recorded'))
+        
+        # Ensure all required fields have default values
+        patient_info.setdefault('medical_history', 'No medical history available')
+        patient_info.setdefault('medications', 'No medications recorded')
 
         logger.info("Formatting medical report...")
 
@@ -94,7 +98,7 @@ def generate_pdf_report(patient_info):
         pdf.set_font("Arial", 'B', size=12)
         pdf.multi_cell(0, 10, "Medical History:")
         pdf.set_font("Arial", size=12)
-        pdf.multi_cell(0, 10, f"{patient_info['medical_history']}")
+        pdf.multi_cell(0, 10, f"{patient_info.get('medical_history', 'No medical history available')}")
         pdf.ln(2)
 
         # Symptoms Title

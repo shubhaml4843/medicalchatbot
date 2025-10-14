@@ -11,7 +11,8 @@ from utils.logger import get_logger
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from sentence_transformers import SentenceTransformer
-from config import COHERE_MODEL
+from config import COHERE_API_KEY, COHERE_MODEL
+import cohere
 from .drug_interaction_checker import medical_ai
 from .medical_ner import medical_ner
 from .medical_knowledge_graph import medical_kg
@@ -23,11 +24,17 @@ load_dotenv()  # Also try current directory
 # Logging
 logger = get_logger(__name__)
 
-# Load Cohere API
-cohere_api_key = os.getenv("COHERE_API_KEY")
-if not cohere_api_key:
-    raise ValueError("[ERROR] Missing COHERE_API_KEY. Please set it as an environment variable.")
-co = cohere.Client(cohere_api_key)
+# Initialize Cohere client
+if not COHERE_API_KEY:
+    logger.error("[ERROR] Missing COHERE_API_KEY in config.py")
+    raise ValueError("[ERROR] Missing COHERE_API_KEY in config.py")
+
+try:
+    co = cohere.Client(COHERE_API_KEY)
+    logger.info("[INFO] Cohere client initialized successfully.")
+except Exception as e:
+    logger.error(f"[ERROR] Failed to initialize Cohere client: {e}")
+    raise
 
 # Load Embedding Models (using smaller model)
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -91,12 +98,29 @@ def classify_and_respond(question, faiss_index, clinical_data, chat_history=None
     if lower_q in ["hi", "hello", "hey"]:
         return "🔹 👤 Patient: 'Hi.'"
 
-    # Keywords that should trigger AI (diagnosis, advice, treatment, test, medication)
+    # Check if asking about existing test results
+    test_inquiry_keywords = [
+        "any test", "test before", "previous test", "test result", "what test", 
+        "test done", "lab result", "blood test", "x-ray", "scan", "ecg", "ekg"
+    ]
+    
+    if any(kw in lower_q for kw in test_inquiry_keywords):
+        # Return actual test results from clinical data
+        test_results = clinical_data.get('test_results', {})
+        if test_results and isinstance(test_results, dict):
+            test_list = []
+            for test, result in test_results.items():
+                test_list.append(f"{test}: {result}")
+            if test_list:
+                return f"🔹 👤 Patient: 'Yes, I had these tests done: {', '.join(test_list)}'"
+        return "🔹 👤 Patient: 'No, I haven't done any tests yet.'"
+
+    # Keywords that should trigger AI (diagnosis, advice, treatment, medication)
     ai_trigger_keywords = [
         "diagnosis", "condition", "disease", "recommend", "suggest", "advise",
         "next step", "interpret", "what does it mean",
-        "what tests", "predict", "future", "plan", "what kind of diagnosis",
-        "what do you recommend", "treatment", "test", "medication", "drug", "medicine", "therapy", "prescribe",
+        "predict", "future", "plan", "what kind of diagnosis",
+        "what do you recommend", "treatment", "medication", "drug", "medicine", "therapy", "prescribe",
         "i will give", "i will recommend", "i recommend", "i suggest", "i advise",
         "let me recommend", "let me suggest", "here is my recommendation", "my recommendation"
     ]

@@ -97,14 +97,28 @@ Provide detailed test recommendations with:
 Format as a structured medical recommendation with clear sections and explanations.
 """
 
-        # Use Cohere for detailed recommendations
+        # Use Cohere for detailed recommendations with retry logic
         if co:
-            cohere_response = co.chat(
-                model=COHERE_MODEL,
-                message=prompt.strip(),
-                                                                                                                                               temperature=0.3
-            )
-            recommendation = cohere_response.text.strip()
+            recommendation = None
+            max_retries = 3
+            
+            for attempt in range(max_retries):
+                try:
+                    cohere_response = co.chat(
+                        model=COHERE_MODEL,
+                        message=prompt.strip(),
+                        temperature=0.3
+                    )
+                    recommendation = cohere_response.text.strip()
+                    break  # Success, exit retry loop
+                except Exception as e:
+                    logger.warning(f"Cohere API attempt {attempt + 1} failed: {e}")
+                    if attempt == max_retries - 1:  # Last attempt
+                        logger.error("All Cohere API attempts failed, using fallback")
+                        recommendation = None
+                    else:
+                        import time
+                        time.sleep(2)  # Wait before retry
         else:
             recommendation = f"""
 ESSENTIAL TESTS for {diagnosis}:
@@ -130,9 +144,11 @@ ADDITIONAL TESTS:
         if co and recommendation:
             logger.info("Adding priority and safety information...")
             try:
-                safety_response = co.chat(
-                    model=COHERE_MODEL,
-                    message=f"""
+                for attempt in range(2):  # Fewer retries for enhancement
+                    try:
+                        safety_response = co.chat(
+                            model=COHERE_MODEL,
+                            message=f"""
 Review and enhance the following test recommendations with priority levels and safety considerations:
 
 Diagnosis: {diagnosis}
@@ -146,10 +162,18 @@ Add:
 
 Return the enhanced recommendations.
 """,
-                    temperature=0.2
-                )
-                enhanced = safety_response.text.strip()
-                return enhanced if enhanced else recommendation
+                            temperature=0.2
+                        )
+                        enhanced = safety_response.text.strip()
+                        return enhanced if enhanced else recommendation
+                    except Exception as e:
+                        logger.warning(f"Enhancement attempt {attempt + 1} failed: {e}")
+                        if attempt == 0:
+                            import time
+                            time.sleep(1)
+                        else:
+                            break
+                return recommendation  # Return original if enhancement fails
             except Exception as e:
                 logger.error(f"Error enhancing recommendations: {e}")
                 return recommendation

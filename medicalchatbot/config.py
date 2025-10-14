@@ -2,7 +2,7 @@ import os
 import torch
 
 # API Configuration
-COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+COHERE_API_KEY = "0BpDYSDqQjkX72aTfL2V3j2E4stGY2GEjFa4ew2K"  # Replace with your actual API key
 COHERE_MODEL = "command-a-03-2025"  # Best model for medical AI
 
 # Device Configuration
@@ -57,6 +57,13 @@ UPLOAD_CONFIG = {
     "max_file_size": 16 * 1024 * 1024,  # 16MB
     "upload_folder": "uploads",
     "reports_folder": "reports"
+}
+
+# Medical Image Analysis Configuration
+IMAGE_CONFIG = {
+    "allowed_extensions": {"jpg", "jpeg", "png", "bmp", "tiff", "dcm"},
+    "max_file_size": 50 * 1024 * 1024,  # 50MB for medical images
+    "supported_types": ["xray", "mri", "ct", "ultrasound", "other"]
 }
 
 # FAISS Configuration

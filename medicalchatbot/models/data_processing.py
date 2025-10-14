@@ -1,7 +1,8 @@
 import os
 import torch
 from transformers import AutoModelForTokenClassification, AutoTokenizer, pipeline
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
+from langchain_community.document_loaders.pdf import PyPDFLoader
+from langchain_community.document_loaders.text import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings

@@ -39,6 +39,22 @@ if not COHERE_API_KEY:
 else:
     co = cohere.Client(COHERE_API_KEY)
 
+def generate_diagnosis_specific_plan(diagnosis, symptoms):
+    if co:
+        try:
+            prompt = f"Create a specific follow-up plan for: {diagnosis}\nPatient symptoms: {symptoms}\n\nFormat as:\n1st Week:\n- [specific actions for this diagnosis]\n\n2nd Week:\n- [specific follow-up for this condition]\n\n3rd-4th Week:\n- [recovery/monitoring for this diagnosis]\n\nMonthly:\n- [long-term care for this condition]\n\nMake it specific to {diagnosis}, not generic."
+            
+            response = co.chat(
+                model=COHERE_MODEL,
+                message=prompt,
+                temperature=0.7
+            )
+            return response.text.strip()
+        except Exception as e:
+            logger.error(f"AI plan generation failed: {e}")
+    
+    return f"""1st Week:\n- Monitor {diagnosis} symptoms daily\n- Follow prescribed treatment\n- Track progress closely\n\n2nd Week:\n- Medical follow-up for {diagnosis}\n- Review treatment effectiveness\n- Adjust therapy if needed\n\n3rd-4th Week:\n- Continue {diagnosis} monitoring\n- Gradual activity resumption\n- Complete recommended tests\n\nMonthly:\n- Comprehensive {diagnosis} evaluation\n- Long-term management planning\n- Preventive care measures"""
+
 # Generate Follow-Up Plan
 def generate_followup_plan(symptoms, diagnosis, test_results):
     """
@@ -92,9 +108,13 @@ def generate_followup_plan(symptoms, diagnosis, test_results):
     """
     
     # Ensure the input text is within model’s max length
+    # Initialize initial_followup variable
+    initial_followup = f"Basic follow-up plan for {predicted_diagnosis}: Regular monitoring and medical check-ups recommended."
+    
     # Generate follow-up plan using available resources
     if MODEL and TOKENIZER:
         inputs = TOKENIZER(input_text, return_tensors="pt", truncation=True, padding=True, max_length=512)
+        inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
     else:
         # Use Cohere directly if BioGPT is not available
         if co:
@@ -109,14 +129,13 @@ def generate_followup_plan(symptoms, diagnosis, test_results):
                 logger.error(f"Cohere error: {e}")
                 initial_followup = f"Comprehensive follow-up plan for {predicted_diagnosis}: Weekly symptom monitoring, lifestyle modifications, and regular medical check-ups recommended."
         else:
-            initial_followup = f"Standard follow-up plan for {predicted_diagnosis}: Monitor symptoms, follow medication regimen, and schedule regular appointments."
+            initial_followup = generate_diagnosis_specific_plan(predicted_diagnosis, symptoms)
         
         return {
             "predicted_diagnosis": predicted_diagnosis,
             "initial_followup": initial_followup,
             "refined_followup": initial_followup
         }
-        inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
         
         try:
             with torch.no_grad():
@@ -131,26 +150,60 @@ def generate_followup_plan(symptoms, diagnosis, test_results):
             logger.info("Initial Follow-Up Plan Generated.")
         except Exception as e:
             logger.error(f"Error generating follow-up with BioGPT: {e}")
-            initial_followup = f"General follow-up plan for {predicted_diagnosis}: Continue current treatment, monitor progress, and maintain regular medical supervision."
+            initial_followup = f"""
+**Week 1-2:**
+- Monitor {predicted_diagnosis} symptoms daily
+- Continue current treatment regimen
+- Track vital signs if applicable
+- Report any worsening to healthcare provider
+
+**Week 3-4:**
+- Schedule follow-up appointment
+- Review treatment effectiveness
+- Adjust medications if needed
+- Begin gradual activity increase
+
+**Month 2:**
+- Comprehensive health assessment
+- Laboratory tests if required
+- Long-term management planning
+- Lifestyle modification counseling
+"""
     
     # Step 4: Refine Plan with Cohere (If Available)
     if co:
         try:
             logger.info("Refining follow-up plan using Cohere...")
             cohere_prompt = f"""
-            You are a medical assistant AI. Based on the patient's information below, refine the follow-up plan into a clear, week-wise structure:
+            You are a medical assistant AI. Create a detailed follow-up plan with specific timeframes:
             
-            Patient History:
-            {patient_data}
+            Patient Condition: {predicted_diagnosis}
+            Symptoms: {symptoms}
+            Test Results: {test_results}
             
-            Initial Follow-Up Plan:
-            {initial_followup}
+            Create a structured follow-up plan with:
             
-            Provide a structured follow-up plan with:
-            1. Week-by-week breakdown
-            2. Medical tests required
-            3. Adjustments to medications or treatments
-            4. Lifestyle and behavioral advice
+            **Week 1:**
+            - Daily monitoring requirements
+            - Immediate actions needed
+            - Medication schedule
+            
+            **Week 2:**
+            - Progress assessment
+            - Symptom tracking
+            - Follow-up tests if needed
+            
+            **Week 3-4:**
+            - Long-term monitoring
+            - Lifestyle modifications
+            - Next appointment scheduling
+            
+            **Monthly Follow-up:**
+            - Regular check-ups
+            - Preventive measures
+            - Warning signs to watch
+            
+            Provide specific dates, times, and actionable steps.
             """
             
             cohere_response = co.chat(

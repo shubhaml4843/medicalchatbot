@@ -47,6 +47,7 @@
             display: flex;
             overflow: hidden;
             position: relative;
+            min-height: 600px;
         }
 
         .container::before {
@@ -61,13 +62,14 @@
         }
 
         .upload-section {
-            width: 350px;
+            width: 380px;
             background: linear-gradient(145deg, #f8fafc, #e2e8f0);
-            padding: 30px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             border-right: 1px solid rgba(0, 0, 0, 0.1);
             position: relative;
+            overflow-y: auto;
         }
 
         .upload-section::before {
@@ -82,12 +84,14 @@
 
         .upload-section h2 {
             color: #1e293b;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         .file-upload {
@@ -101,13 +105,18 @@
 
         .file-upload-label {
             display: block;
-            padding: 20px;
+            padding: 18px;
             border: 2px dashed #cbd5e1;
             border-radius: 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             background: white;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .file-upload-label:hover {
@@ -254,21 +263,22 @@
         .button {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8, #7c3aed);
             color: white;
-            padding: 15px 25px;
+            padding: 12px 20px;
             border: none;
             border-radius: 12px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
-            margin-top: 15px;
+            margin-top: 20px;
             width: 100%;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             position: relative;
             overflow: hidden;
+            min-height: 45px;
         }
 
         .button::before {
@@ -319,21 +329,61 @@
             border: 1px solid #fecaca;
         }
 
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 height: auto;
                 margin: 10px;
+                border-radius: 15px;
             }
 
             .upload-section {
                 width: 100%;
                 border-right: none;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 20px;
             }
 
             .chat-message {
                 max-width: 85%;
+            }
+
+            .upload-section h2 {
+                font-size: 18px;
             }
         }
     </style>
@@ -434,6 +484,95 @@
             div.innerHTML = html;
             return div.firstChild;
         }
+        
+        function analyzeImage(input) {
+            let file = input.files[0];
+            if (!file) return;
+
+            let formData = new FormData();
+            formData.append("medical_image", file);
+            formData.append("image_type", document.getElementById("image_type").value);
+            formData.append("body_part", document.getElementById("body_part").value);
+
+            document.getElementById("image-status").innerHTML = `<div class="status"><i class="fas fa-spinner fa-spin"></i> Analyzing Image...</div>`;
+
+            fetch("/analyze_image", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    let data;
+                    try {
+                        data = JSON.parse(text);
+                    } catch (e) {
+                        throw new Error('Server returned invalid response: ' + text.substring(0, 100));
+                    }
+                    return data;
+                })
+                .then(data => {
+                    if (data.success) {
+                        let analysis = data.analysis;
+                        let resultsHtml = `
+                            <div class="status success">
+                                <i class="fas fa-check-circle"></i> Analysis Complete!
+                                <div style="margin-top: 10px; font-size: 14px;">
+                                    ${analysis.user_specified_part ? `<strong>User Specified:</strong> ${analysis.user_specified_part}<br>` : ''}
+                                    <strong>AI Detected:</strong> ${analysis.detected_body_part}<br>
+                                    <strong>Analyzed as:</strong> ${analysis.analyzed_as}<br>
+                                    <strong>Anomalies:</strong> ${analysis.anomalies_detected}<br>
+                                    ${analysis.anomalies && analysis.anomalies.length > 0 ? `<strong>Detected:</strong> ${analysis.anomalies.map(a => a.name || a.type).join(', ')}<br>` : ''}
+                                    <strong>Status:</strong> ${analysis.overall_assessment.status}<br>
+                                    <strong>Urgency:</strong> ${analysis.overall_assessment.urgency}
+                                </div>
+                            </div>
+                        `;
+                        document.getElementById("image-status").innerHTML = resultsHtml;
+                        
+                        // Add to chat
+                        let chatBox = document.getElementById("chat-box");
+                        // Create anomaly list with counts
+                        let anomalyList = '';
+                        if (analysis.anomalies && analysis.anomalies.length > 0) {
+                            // Count anomaly types
+                            let anomalyCounts = {};
+                            analysis.anomalies.forEach(anomaly => {
+                                let name = anomaly.name || anomaly.type;
+                                anomalyCounts[name] = (anomalyCounts[name] || 0) + 1;
+                            });
+                            
+                            anomalyList = '<br><strong>Detected Anomalies:</strong><br>';
+                            Object.entries(anomalyCounts).slice(0, 4).forEach(([name, count]) => {
+                                anomalyList += `• ${name}: ${count}<br>`;
+                            });
+                        }
+                        
+                        let analysisMessage = `
+                            <div class='chat-message ai-message'>
+                                <i class="fas fa-microscope"></i> <strong>AI Image Analysis Results:</strong><br>
+                                🤖 Auto-Detected: ${analysis.detected_body_part}<br>
+                                🔬 Total Anomalies: ${analysis.anomalies_detected}<br>
+                                🎨 Status: ${analysis.overall_assessment.status}<br>
+                                ⚠️ Urgency: ${analysis.overall_assessment.urgency}<br>
+                                ${anomalyList}
+                                📝 Recommendation: ${analysis.overall_assessment.recommendation}
+                            </div>
+                        `;
+                        chatBox.appendChild(createMessageElement(analysisMessage));
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    } else {
+                        document.getElementById("image-status").innerHTML = `<div class="status error"><i class="fas fa-exclamation-circle"></i> Analysis Failed: ${data.error}</div>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("image-status").innerHTML = `<div class="status error"><i class="fas fa-exclamation-circle"></i> Analysis Failed: ${error.message}</div>`;
+                });
+        }
     </script>
 </head>
 
@@ -444,12 +583,38 @@
             <div class="file-upload">
                 <input type="file" id="clinical_report" name="clinical_report" onchange="uploadFile(this)" accept=".json, .csv, .pdf, .doc, .docx" required>
                 <label for="clinical_report" class="file-upload-label">
-                    <i class="fas fa-cloud-upload-alt" style="font-size: 24px; color: #3b82f6; margin-bottom: 10px;"></i>
-                    <div style="font-weight: 600; margin-bottom: 5px;">Choose Medical Report</div>
-                    <div style="font-size: 14px; color: #64748b;">📄 PDF, DOC, JSON, CSV files supported</div>
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 22px; color: #3b82f6; margin-bottom: 8px;"></i>
+                    <div style="font-weight: 600; margin-bottom: 4px; font-size: 15px;">Choose Medical Report</div>
+                    <div style="font-size: 13px; color: #64748b;">📄 PDF, DOC, JSON, CSV files supported</div>
                 </label>
             </div>
             <div id="upload-status"></div>
+            
+            <!-- Medical Image Analysis Section -->
+            <h2 style="margin-top: 25px;"><i class="fas fa-x-ray"></i> Medical Image Analysis</h2>
+            <div class="file-upload">
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 5px;">Image Type:</label>
+                    <select id="image_type" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; background: white;">
+                        <option value="xray">X-Ray</option>
+                        <option value="ct">CT Scan</option>
+                        <option value="mri">MRI</option>
+                        <option value="ultrasound">Ultrasound</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 5px;">Body Part (Optional):</label>
+                    <input type="text" id="body_part" placeholder="e.g., chest, leg, spine, knee..." style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; background: white;">
+                </div>
+                <input type="file" id="medical_image" name="medical_image" onchange="analyzeImage(this)" accept=".jpg,.jpeg,.png,.bmp,.tiff,.dcm" required>
+                <label for="medical_image" class="file-upload-label">
+                    <i class="fas fa-image" style="font-size: 22px; color: #10b981; margin-bottom: 8px;"></i>
+                    <div style="font-weight: 600; margin-bottom: 4px; font-size: 15px;">Upload Medical Image</div>
+                    <div style="font-size: 13px; color: #64748b;">🔬 JPG, PNG, TIFF, DICOM supported</div>
+                </label>
+            </div>
+            <div id="image-status"></div>
+            
             <button class="button" onclick="generateReport()">
                 <i class="fas fa-file-pdf"></i> Generate Report
             </button>
